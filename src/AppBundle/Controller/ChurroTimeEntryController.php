@@ -13,11 +13,14 @@ class ChurroTimeEntryController extends Controller
             ->getManager()
             ->getRepository(ChurroTimeEntry::class)
             ->createQueryBuilder('churro_time_entry')
-            ->where('churro_time_entry.endCookingAt - churro_time_entry.endCookingAt > 5')
+            ->where('churro_time_entry.startCookingAt > :date')
+            ->setParameter('date', new \DateTime('-1 week'))
             ->orderBy('churro_time_entry.startCookingAt', 'DESC')
             ->getQuery()
             ->getResult();
 
-        return $this->render('AppBundle:ChurroTimeEntry:list.html.twig');
+        return $this->render('AppBundle:ChurroTimeEntry:list.html.twig', [
+            'timeEntries' => $timeEntries,
+        ]);
     }
 }
