@@ -1,0 +1,9 @@
+app_homepage:
+    path: /
+    defaults:
+        _controller: 'AppBundle:Default:homepage'
+
+app_churro_time_entry_list:
+    path: /
+    defaults:
+        _controller: 'AppBundle:ChurroTimeEntry:list'

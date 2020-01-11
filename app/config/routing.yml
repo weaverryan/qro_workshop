@@ -1,4 +1,2 @@
-app_homepage:
-    path: /
-    defaults:
-        _controller: 'AppBundle:Default:homepage'
+app_bundle_import:
+    resource: '@AppBundle/Resources/config/routing.yml'
