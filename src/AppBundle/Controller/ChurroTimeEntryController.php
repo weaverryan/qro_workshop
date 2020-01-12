@@ -18,12 +18,26 @@ class ChurroTimeEntryController extends Controller
             ->getQuery()
             ->getResult();
 
+        $useFilter = true;
+        $today = new \DateTime('now');
+        if ($today->format('n') <= 6) {
+            if ($today->format('j') === 1 || $today->format('j') === 2) {
+                // don't use filter if today is 1st/2nd of January-June
+                $useFilter = false;
+            }
+        } else {
+            if ($today->format('j') === 30 || $today->format('j') === 31) {
+                // don't use filter if today is 30th/31st of July-December
+                $useFilter = false;
+            }
+        }
+
         $types = [];
         foreach ($timeEntries as $timeEntry) {
-            if ($timeEntry->getStartCookingAt()->format('H') < 6) {
+            if ($useFilter && $timeEntry->getStartCookingAt()->format('H') < 6) {
                 // skip
             } else {
-                if ($timeEntry->getStartCookingAt()->format('H') >= 22) {
+                if ($useFilter && $timeEntry->getStartCookingAt()->format('H') >= 22) {
                     // skip
                 } else {
                     if (isset($types[$timeEntry->getType()])) {
