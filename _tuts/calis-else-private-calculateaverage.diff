@@ -1,0 +1,33 @@
+diff --git a/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php b/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
+index a7b83ef..2a4b1f1 100644
+--- a/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
++++ b/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
+@@ -53,12 +53,8 @@ class ChurroTimeEntryStatsHelper
+         $bestType = null;
+         $bestTypeAverage = 0;
+         foreach ($types as $type => $data) {
+-            $total = 0;
+-            foreach ($data as $quantity) {
+-                $total += $quantity;
+-            }
++            $thisAverage = $this->calculateAverage($data);
+ 
+-            $thisAverage = $total / count($data);
+             if ($thisAverage > $bestTypeAverage) {
+                 $bestTypeAverage = $thisAverage;
+                 $bestType = $type;
+@@ -96,4 +92,14 @@ class ChurroTimeEntryStatsHelper
+ 
+         return true;
+     }
++
++    private function calculateAverage(array $data)
++    {
++        $total = 0;
++        foreach ($data as $quantity) {
++            $total += $quantity;
++        }
++
++        return $total / count($data);
++    }
+ }

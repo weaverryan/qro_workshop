@@ -32,10 +32,10 @@ index 0cd0bec..8a91dcd 100644
 -    }
  }
 diff --git a/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php b/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
-index 3b86102..7ab1a5c 100644
+index 4391250..e6f5421 100644
 --- a/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
 +++ b/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
-@@ -61,9 +61,7 @@ class ChurroTimeEntryStatsHelper
+@@ -79,9 +79,7 @@ class ChurroTimeEntryStatsHelper
  
          $this->logger->info('Most efficient type is '.$bestType);
  

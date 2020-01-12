@@ -8,7 +8,7 @@ index 1a7167c..69a7c1a 100644
              - '@doctrine'
 +            - '@logger'
 diff --git a/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php b/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
-index 46f059d..f14e072 100644
+index e0117fb..47a9435 100644
 --- a/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
 +++ b/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
 @@ -4,14 +4,17 @@ namespace AppBundle\Service;
@@ -30,7 +30,7 @@ index 46f059d..f14e072 100644
      }
  
      /**
-@@ -60,6 +63,8 @@ class ChurroTimeEntryStatsHelper
+@@ -78,6 +81,8 @@ class ChurroTimeEntryStatsHelper
              }
          }
  

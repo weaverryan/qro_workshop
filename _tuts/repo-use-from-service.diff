@@ -1,5 +1,5 @@
 diff --git a/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php b/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
-index f14e072..b3c1c83 100644
+index 47a9435..c657f9e 100644
 --- a/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
 +++ b/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
 @@ -27,12 +27,7 @@ class ChurroTimeEntryStatsHelper
@@ -14,5 +14,5 @@ index f14e072..b3c1c83 100644
 -            ->getResult();
 +            ->findAllDuringLastWeekOrderedNewestFirst();
  
-         $types = [];
-         foreach ($timeEntries as $timeEntry) {
+         $useFilter = true;
+         $today = new \DateTime('now');

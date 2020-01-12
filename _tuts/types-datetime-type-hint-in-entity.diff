@@ -1,8 +1,8 @@
 diff --git a/src/AppBundle/Entity/ChurroTimeEntry.php b/src/AppBundle/Entity/ChurroTimeEntry.php
-index 9eca7b0..28df150 100644
+index 953154a..6211287 100644
 --- a/src/AppBundle/Entity/ChurroTimeEntry.php
 +++ b/src/AppBundle/Entity/ChurroTimeEntry.php
-@@ -70,7 +70,7 @@ class ChurroTimeEntry
+@@ -76,7 +76,7 @@ class ChurroTimeEntry
          return $this->startCookingAt;
      }
  
@@ -11,7 +11,7 @@ index 9eca7b0..28df150 100644
      {
          $this->startCookingAt = $startCookingAt;
      }
-@@ -83,7 +83,7 @@ class ChurroTimeEntry
+@@ -89,7 +89,7 @@ class ChurroTimeEntry
          return $this->endCookingAt;
      }
  
@@ -20,7 +20,7 @@ index 9eca7b0..28df150 100644
      {
          $this->endCookingAt = $endCookingAt;
      }
-@@ -96,7 +96,7 @@ class ChurroTimeEntry
+@@ -102,7 +102,7 @@ class ChurroTimeEntry
          return $this->startCleanupAt;
      }
  
@@ -29,7 +29,7 @@ index 9eca7b0..28df150 100644
      {
          $this->startCleanupAt = $startCleanupAt;
      }
-@@ -109,7 +109,7 @@ class ChurroTimeEntry
+@@ -115,7 +115,7 @@ class ChurroTimeEntry
          return $this->endCleanupAt;
      }
  

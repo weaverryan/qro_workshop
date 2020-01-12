@@ -194,7 +194,67 @@
             "id": "model-use-constructor",
             "name": "Model: use constructor",
             "description": null
+        },
+        {
+            "id": "model-return-immediately",
+            "name": "Model: return immediately",
+            "description": null
+        },
+        {
+            "id": "calis-else-refactor-to-shouldusefilter",
+            "name": "Calis Else: refactor to shouldUseFilter",
+            "description": null
+        },
+        {
+            "id": "calis-else-remove-first-else",
+            "name": "Calis Else: remove first else",
+            "description": null
+        },
+        {
+            "id": "calis-else-return-if-october",
+            "name": "Calis Else: return if October",
+            "description": null
+        },
+        {
+            "id": "calis-else-return-false-in-last-if",
+            "name": "Calis Else: return false in last if",
+            "description": null
+        },
+        {
+            "id": "calis-else-phpdoc-above-method",
+            "name": "Calis Else: phpdoc above method",
+            "description": null
+        },
+        {
+            "id": "calis-else-use-continue",
+            "name": "Calis Else: use continue",
+            "description": null
+        },
+        {
+            "id": "calis-else-use-another-continue",
+            "name": "Calis Else: use another continue",
+            "description": null
+        },
+        {
+            "id": "calis-else-reverse-logic",
+            "name": "Calis Else: reverse logic",
+            "description": null
+        },
+        {
+            "id": "calis-else-avg-to-longer-name",
+            "name": "Calis Else: $avg to longer name",
+            "description": null
+        },
+        {
+            "id": "calis-else-private-calculateaverage",
+            "name": "Calis Else: private calculateAverage()",
+            "description": null
+        },
+        {
+            "id": "calis-else-reverse-use-continue",
+            "name": "Calis Else: reverse & use continue",
+            "description": null
         }
     ],
-    "sha": "9a81247a280646d2a4292b55c19078f0bddeeffb"
+    "sha": "cf11b6a55fd0d6e9ee0e9039ec5704458a5864a0"
 }

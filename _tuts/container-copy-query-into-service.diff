@@ -1,5 +1,5 @@
 diff --git a/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php b/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
-index e831bdc..380e6d0 100644
+index eb51407..89dd55b 100644
 --- a/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
 +++ b/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
 @@ -15,6 +15,15 @@ class ChurroTimeEntryStatsHelper
@@ -15,6 +15,6 @@ index e831bdc..380e6d0 100644
 +            ->getQuery()
 +            ->getResult();
 +
-         $types = [];
-         foreach ($timeEntries as $timeEntry) {
-             if ($timeEntry->getStartCookingAt()->format('H') < 6) {
+         $useFilter = true;
+         $today = new \DateTime('now');
+         if ($today->format('n') <= 6) {

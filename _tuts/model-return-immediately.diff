@@ -1,0 +1,14 @@
+diff --git a/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php b/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
+index e6f5421..32174ce 100644
+--- a/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
++++ b/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
+@@ -79,8 +79,6 @@ class ChurroTimeEntryStatsHelper
+ 
+         $this->logger->info('Most efficient type is '.$bestType);
+ 
+-        $typeStats = new ChurroTypeStats($bestType, $avg);
+-
+-        return $typeStats;
++        return new ChurroTypeStats($bestType, $avg);
+     }
+ }

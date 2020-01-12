@@ -1,8 +1,8 @@
 diff --git a/src/AppBundle/Controller/ChurroTimeEntryController.php b/src/AppBundle/Controller/ChurroTimeEntryController.php
-index ed3e205..07a8018 100644
+index e195160..ecfe981 100644
 --- a/src/AppBundle/Controller/ChurroTimeEntryController.php
 +++ b/src/AppBundle/Controller/ChurroTimeEntryController.php
-@@ -65,6 +65,8 @@ class ChurroTimeEntryController extends Controller
+@@ -83,6 +83,8 @@ class ChurroTimeEntryController extends Controller
              throw $this->createNotFoundException('no time entry for '.$id);
          }
  

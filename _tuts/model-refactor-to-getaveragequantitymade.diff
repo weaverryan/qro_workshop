@@ -30,10 +30,10 @@ index ca10f33..0cd0bec 100644
      }
  }
 diff --git a/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php b/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
-index 595d361..3b86102 100644
+index 10376f8..4391250 100644
 --- a/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
 +++ b/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
-@@ -63,7 +63,7 @@ class ChurroTimeEntryStatsHelper
+@@ -81,7 +81,7 @@ class ChurroTimeEntryStatsHelper
  
          $typeStats=  new ChurroTypeStats();
          $typeStats->setType($bestType);

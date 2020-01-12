@@ -1,5 +1,5 @@
 diff --git a/src/AppBundle/Controller/ChurroTimeEntryController.php b/src/AppBundle/Controller/ChurroTimeEntryController.php
-index 1d2b49a..00ddc8a 100644
+index bd4ef97..4d357cf 100644
 --- a/src/AppBundle/Controller/ChurroTimeEntryController.php
 +++ b/src/AppBundle/Controller/ChurroTimeEntryController.php
 @@ -44,6 +44,13 @@ class ChurroTimeEntryController extends Controller
@@ -15,4 +15,4 @@ index 1d2b49a..00ddc8a 100644
 +     */
      private function getMostEfficientTypeData(array $timeEntries)
      {
-         $types = [];
+         $useFilter = true;

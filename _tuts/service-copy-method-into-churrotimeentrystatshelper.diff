@@ -1,8 +1,8 @@
 diff --git a/src/AppBundle/Controller/ChurroTimeEntryController.php b/src/AppBundle/Controller/ChurroTimeEntryController.php
-index b3da427..3cae0e2 100644
+index 003e5c0..3cae0e2 100644
 --- a/src/AppBundle/Controller/ChurroTimeEntryController.php
 +++ b/src/AppBundle/Controller/ChurroTimeEntryController.php
-@@ -47,45 +47,4 @@ class ChurroTimeEntryController extends Controller
+@@ -47,63 +47,4 @@ class ChurroTimeEntryController extends Controller
              'timeEntry' => $timeEntry
          ]);
      }
@@ -16,16 +16,34 @@ index b3da427..3cae0e2 100644
 -     */
 -    private function getMostEfficientTypeData(array $timeEntries)
 -    {
+-        $useFilter = true;
+-        $today = new \DateTime('now');
+-        if ($today->format('n') <= 6) {
+-            // don't filter if today is January-June
+-            $useFilter = false;
+-        } else {
+-            if (($today->format('j') === 30 || $today->format('j') === 31)
+-                && $today->format('n') !== 10) {
+-                // don't use filter if today is 30th/31st of July-December
+-                // except for October - always use the filter in October
+-                $useFilter = false;
+-            }
+-        }
+-
 -        $types = [];
 -        foreach ($timeEntries as $timeEntry) {
--            if ($timeEntry->getStartCookingAt()->format('H') < 6) {
+-            if ($useFilter && $timeEntry->getStartCookingAt()->format('H') < 6) {
 -                // skip
 -            } else {
--                if (isset($types[$timeEntry->getType()])) {
--                    $types[$timeEntry->getType()][] = $timeEntry->getQuantityMade();
+-                if ($useFilter && $timeEntry->getStartCookingAt()->format('H') >= 22) {
+-                    // skip
 -                } else {
--                    $types[$timeEntry->getType()] = [];
--                    $types[$timeEntry->getType()][] = $timeEntry->getQuantityMade();
+-                    if (isset($types[$timeEntry->getType()])) {
+-                        $types[$timeEntry->getType()][] = $timeEntry->getQuantityMade();
+-                    } else {
+-                        $types[$timeEntry->getType()] = [];
+-                        $types[$timeEntry->getType()][] = $timeEntry->getQuantityMade();
+-                    }
 -                }
 -            }
 -        }
@@ -50,10 +68,10 @@ index b3da427..3cae0e2 100644
  }
 diff --git a/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php b/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
 new file mode 100644
-index 0000000..30b47ef
+index 0000000..d6578e3
 --- /dev/null
 +++ b/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
-@@ -0,0 +1,47 @@
+@@ -0,0 +1,65 @@
 +<?php
 +
 +namespace AppBundle\Service;
@@ -69,16 +87,34 @@ index 0000000..30b47ef
 +     */
 +    private function getMostEfficientTypeData(array $timeEntries)
 +    {
++        $useFilter = true;
++        $today = new \DateTime('now');
++        if ($today->format('n') <= 6) {
++            // don't filter if today is January-June
++            $useFilter = false;
++        } else {
++            if (($today->format('j') === 30 || $today->format('j') === 31)
++                && $today->format('n') !== 10) {
++                // don't use filter if today is 30th/31st of July-December
++                // except for October - always use the filter in October
++                $useFilter = false;
++            }
++        }
++
 +        $types = [];
 +        foreach ($timeEntries as $timeEntry) {
-+            if ($timeEntry->getStartCookingAt()->format('H') < 6) {
++            if ($useFilter && $timeEntry->getStartCookingAt()->format('H') < 6) {
 +                // skip
 +            } else {
-+                if (isset($types[$timeEntry->getType()])) {
-+                    $types[$timeEntry->getType()][] = $timeEntry->getQuantityMade();
++                if ($useFilter && $timeEntry->getStartCookingAt()->format('H') >= 22) {
++                    // skip
 +                } else {
-+                    $types[$timeEntry->getType()] = [];
-+                    $types[$timeEntry->getType()][] = $timeEntry->getQuantityMade();
++                    if (isset($types[$timeEntry->getType()])) {
++                        $types[$timeEntry->getType()][] = $timeEntry->getQuantityMade();
++                    } else {
++                        $types[$timeEntry->getType()] = [];
++                        $types[$timeEntry->getType()][] = $timeEntry->getQuantityMade();
++                    }
 +                }
 +            }
 +        }

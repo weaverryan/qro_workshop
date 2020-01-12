@@ -1,0 +1,21 @@
+diff --git a/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php b/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
+index 2a4b1f1..63593ec 100644
+--- a/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
++++ b/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
+@@ -55,10 +55,13 @@ class ChurroTimeEntryStatsHelper
+         foreach ($types as $type => $data) {
+             $thisAverage = $this->calculateAverage($data);
+ 
+-            if ($thisAverage > $bestTypeAverage) {
+-                $bestTypeAverage = $thisAverage;
+-                $bestType = $type;
++            if ($thisAverage <= $bestTypeAverage) {
++                continue;
+             }
++
++            // new best average found!
++            $bestTypeAverage = $thisAverage;
++            $bestType = $type;
+         }
+ 
+         $this->logger->info('Most efficient type is '.$bestType);

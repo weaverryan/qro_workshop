@@ -1,5 +1,5 @@
 diff --git a/src/AppBundle/Controller/ChurroTimeEntryController.php b/src/AppBundle/Controller/ChurroTimeEntryController.php
-index 2e06a41..1d2b49a 100644
+index 6a52fc6..bd4ef97 100644
 --- a/src/AppBundle/Controller/ChurroTimeEntryController.php
 +++ b/src/AppBundle/Controller/ChurroTimeEntryController.php
 @@ -19,6 +19,33 @@ class ChurroTimeEntryController extends Controller
@@ -33,10 +33,10 @@ index 2e06a41..1d2b49a 100644
 +
 +    private function getMostEfficientTypeData(array $timeEntries)
 +    {
-         $types = [];
-         foreach ($timeEntries as $timeEntry) {
-             if ($timeEntry->getStartCookingAt()->format('H') < 6) {
-@@ -48,26 +75,6 @@ class ChurroTimeEntryController extends Controller
+         $useFilter = true;
+         $today = new \DateTime('now');
+         if ($today->format('n') <= 6) {
+@@ -66,26 +93,6 @@ class ChurroTimeEntryController extends Controller
              }
          }
  
