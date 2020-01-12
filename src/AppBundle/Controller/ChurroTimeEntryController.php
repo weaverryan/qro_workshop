@@ -23,11 +23,15 @@ class ChurroTimeEntryController extends Controller
             if ($timeEntry->getStartCookingAt()->format('H') < 6) {
                 // skip
             } else {
-                if (isset($types[$timeEntry->getType()])) {
-                    $types[$timeEntry->getType()][] = $timeEntry->getQuantityMade();
+                if ($timeEntry->getStartCookingAt()->format('H') >= 22) {
+                    // skip
                 } else {
-                    $types[$timeEntry->getType()] = [];
-                    $types[$timeEntry->getType()][] = $timeEntry->getQuantityMade();
+                    if (isset($types[$timeEntry->getType()])) {
+                        $types[$timeEntry->getType()][] = $timeEntry->getQuantityMade();
+                    } else {
+                        $types[$timeEntry->getType()] = [];
+                        $types[$timeEntry->getType()][] = $timeEntry->getQuantityMade();
+                    }
                 }
             }
         }
