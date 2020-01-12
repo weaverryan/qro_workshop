@@ -1,0 +1,33 @@
+diff --git a/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php b/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
+index b3c1c83..595d361 100644
+--- a/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
++++ b/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
+@@ -3,6 +3,7 @@
+ namespace AppBundle\Service;
+ 
+ use AppBundle\Entity\ChurroTimeEntry;
++use AppBundle\Model\ChurroTypeStats;
+ use Doctrine\Bundle\DoctrineBundle\Registry;
+ use Symfony\Bridge\Monolog\Logger;
+ 
+@@ -21,7 +22,7 @@ class ChurroTimeEntryStatsHelper
+      * Determines which "type" cooks the most churros on average
+      * and returns that inside an array with "type" and "average" keys.
+      *
+-     * @return array
++     * @return ChurroTypeStats
+      */
+     public function getMostEfficientTypeData()
+     {
+@@ -60,6 +61,10 @@ class ChurroTimeEntryStatsHelper
+ 
+         $this->logger->info('Most efficient type is '.$bestType);
+ 
+-        return ['type' => $bestType, 'average' => $avg];
++        $typeStats=  new ChurroTypeStats();
++        $typeStats->setType($bestType);
++        $typeStats->setAverage($avg);
++
++        return $typeStats;
+     }
+ }

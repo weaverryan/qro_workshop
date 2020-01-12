@@ -1,0 +1,20 @@
+diff --git a/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php b/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
+index e831bdc..380e6d0 100644
+--- a/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
++++ b/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
+@@ -15,6 +15,15 @@ class ChurroTimeEntryStatsHelper
+      */
+     public function getMostEfficientTypeData(array $timeEntries)
+     {
++        $timeEntries = $this->container->get('doctrine')
++            ->getRepository(ChurroTimeEntry::class)
++            ->createQueryBuilder('churro_time_entry')
++            ->where('churro_time_entry.startCookingAt > :date')
++            ->setParameter('date', new \DateTime('-1 week'))
++            ->orderBy('churro_time_entry.startCookingAt', 'DESC')
++            ->getQuery()
++            ->getResult();
++
+         $types = [];
+         foreach ($timeEntries as $timeEntry) {
+             if ($timeEntry->getStartCookingAt()->format('H') < 6) {

@@ -1,0 +1,40 @@
+diff --git a/src/AppBundle/Entity/ChurroTimeEntry.php b/src/AppBundle/Entity/ChurroTimeEntry.php
+index 9eca7b0..28df150 100644
+--- a/src/AppBundle/Entity/ChurroTimeEntry.php
++++ b/src/AppBundle/Entity/ChurroTimeEntry.php
+@@ -70,7 +70,7 @@ class ChurroTimeEntry
+         return $this->startCookingAt;
+     }
+ 
+-    public function setStartCookingAt($startCookingAt)
++    public function setStartCookingAt(\DateTime $startCookingAt)
+     {
+         $this->startCookingAt = $startCookingAt;
+     }
+@@ -83,7 +83,7 @@ class ChurroTimeEntry
+         return $this->endCookingAt;
+     }
+ 
+-    public function setEndCookingAt($endCookingAt)
++    public function setEndCookingAt(\DateTime $endCookingAt)
+     {
+         $this->endCookingAt = $endCookingAt;
+     }
+@@ -96,7 +96,7 @@ class ChurroTimeEntry
+         return $this->startCleanupAt;
+     }
+ 
+-    public function setStartCleanupAt($startCleanupAt)
++    public function setStartCleanupAt(\DateTime $startCleanupAt)
+     {
+         $this->startCleanupAt = $startCleanupAt;
+     }
+@@ -109,7 +109,7 @@ class ChurroTimeEntry
+         return $this->endCleanupAt;
+     }
+ 
+-    public function setEndCleanupAt($endCleanupAt)
++    public function setEndCleanupAt(\DateTime $endCleanupAt)
+     {
+         $this->endCleanupAt = $endCleanupAt;
+     }

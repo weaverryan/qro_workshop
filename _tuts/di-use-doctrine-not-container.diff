@@ -1,0 +1,38 @@
+diff --git a/src/AppBundle/Resources/config/services.yml b/src/AppBundle/Resources/config/services.yml
+index b0013a3..1a7167c 100644
+--- a/src/AppBundle/Resources/config/services.yml
++++ b/src/AppBundle/Resources/config/services.yml
+@@ -2,4 +2,4 @@ services:
+     app.churro_time_entry_stats_helper:
+         class: AppBundle\Service\ChurroTimeEntryStatsHelper
+         arguments:
+-            - '@service_container'
++            - '@doctrine'
+diff --git a/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php b/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
+index 7bcf519..3fbe161 100644
+--- a/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
++++ b/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
+@@ -6,11 +6,11 @@ use AppBundle\Entity\ChurroTimeEntry;
+ 
+ class ChurroTimeEntryStatsHelper
+ {
+-    private $container;
++    private $doctrine;
+ 
+-    public function __construct($container)
++    public function __construct($doctrine)
+     {
+-        $this->container = $container;
++        $this->doctrine = $doctrine;
+     }
+ 
+     /**
+@@ -21,7 +21,7 @@ class ChurroTimeEntryStatsHelper
+      */
+     public function getMostEfficientTypeData()
+     {
+-        $timeEntries = $this->container->get('doctrine')
++        $timeEntries = $this->doctrine
+             ->getRepository(ChurroTimeEntry::class)
+             ->createQueryBuilder('churro_time_entry')
+             ->where('churro_time_entry.startCookingAt > :date')

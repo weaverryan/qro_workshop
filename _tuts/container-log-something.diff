@@ -1,8 +1,8 @@
 diff --git a/src/AppBundle/Controller/ChurroTimeEntryController.php b/src/AppBundle/Controller/ChurroTimeEntryController.php
-index 052eb9d..a6b864c 100644
+index f7bb6ec..b3da427 100644
 --- a/src/AppBundle/Controller/ChurroTimeEntryController.php
 +++ b/src/AppBundle/Controller/ChurroTimeEntryController.php
-@@ -20,6 +20,10 @@ class ChurroTimeEntryController extends Controller
+@@ -19,6 +19,10 @@ class ChurroTimeEntryController extends Controller
              ->getQuery()
              ->getResult();
  

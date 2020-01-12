@@ -1,0 +1,18 @@
+diff --git a/src/AppBundle/Controller/ChurroTimeEntryController.php b/src/AppBundle/Controller/ChurroTimeEntryController.php
+index 2ec00e6..d711fd4 100644
+--- a/src/AppBundle/Controller/ChurroTimeEntryController.php
++++ b/src/AppBundle/Controller/ChurroTimeEntryController.php
+@@ -13,12 +13,7 @@ class ChurroTimeEntryController extends Controller
+     {
+         $timeEntries = $this->container->get('doctrine')
+             ->getRepository(ChurroTimeEntry::class)
+-            ->createQueryBuilder('churro_time_entry')
+-            ->where('churro_time_entry.startCookingAt > :date')
+-            ->setParameter('date', new \DateTime('-1 week'))
+-            ->orderBy('churro_time_entry.startCookingAt', 'DESC')
+-            ->getQuery()
+-            ->getResult();
++            ->findAllDuringLastWeekOrderedNewestFirst();
+ 
+         $this->container
+             ->get('logger')

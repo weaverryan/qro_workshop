@@ -1,14 +1,13 @@
 diff --git a/src/AppBundle/Controller/ChurroTimeEntryController.php b/src/AppBundle/Controller/ChurroTimeEntryController.php
-index 8cec4a9..99fd02b 100644
+index 1ffaec5..ed3e205 100644
 --- a/src/AppBundle/Controller/ChurroTimeEntryController.php
 +++ b/src/AppBundle/Controller/ChurroTimeEntryController.php
-@@ -58,6 +58,15 @@ class ChurroTimeEntryController extends Controller
+@@ -57,6 +57,14 @@ class ChurroTimeEntryController extends Controller
  
      public function showAction($id)
      {
 -        return new Response('Time entry '.$id);
 +        $timeEntry = $this->getDoctrine()
-+            ->getManager()
 +            ->getRepository(ChurroTimeEntry::class)
 +            ->find($id);
 +

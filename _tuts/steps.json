@@ -84,7 +84,117 @@
             "id": "container-use-service",
             "name": "Container: use service",
             "description": null
+        },
+        {
+            "id": "container-copy-query-into-service",
+            "name": "Container: copy query into service",
+            "description": null
+        },
+        {
+            "id": "container-remove-extra-arg",
+            "name": "Container: remove extra arg",
+            "description": null
+        },
+        {
+            "id": "container-add-constructor-for-container",
+            "name": "Container: add constructor for container",
+            "description": null
+        },
+        {
+            "id": "container-add-arguments-to-config",
+            "name": "Container: add arguments to config",
+            "description": null
+        },
+        {
+            "id": "container-re-use-for-homepage",
+            "name": "Container: re-use for homepage",
+            "description": null
+        },
+        {
+            "id": "container-template-partial",
+            "name": "Container: template partial",
+            "description": null
+        },
+        {
+            "id": "di-use-doctrine-not-container",
+            "name": "DI: use doctrine, not container",
+            "description": null
+        },
+        {
+            "id": "di-add-registry-type-hint",
+            "name": "DI: add Registry type-hint",
+            "description": null
+        },
+        {
+            "id": "di-inject-use-logger",
+            "name": "DI: inject+use logger",
+            "description": null
+        },
+        {
+            "id": "repo-create-repository",
+            "name": "Repo: create repository",
+            "description": null
+        },
+        {
+            "id": "repo-copy-in-query",
+            "name": "Repo: copy in query",
+            "description": null
+        },
+        {
+            "id": "repo-return-tweak-code",
+            "name": "Repo: return, tweak code",
+            "description": null
+        },
+        {
+            "id": "repo-use-from-service",
+            "name": "Repo: use from service",
+            "description": null
+        },
+        {
+            "id": "repo-use-from-controller",
+            "name": "Repo: use from controller",
+            "description": null
+        },
+        {
+            "id": "repo-add-return",
+            "name": "Repo: add @return",
+            "description": null
+        },
+        {
+            "id": "types-return-inside-entity",
+            "name": "Types: @return inside entity",
+            "description": null
+        },
+        {
+            "id": "types-datetime-type-hint-in-entity",
+            "name": "Types: DateTime type-hint in entity",
+            "description": null
+        },
+        {
+            "id": "model-create-churrotypestats",
+            "name": "Model: create ChurroTypeStats",
+            "description": null
+        },
+        {
+            "id": "model-return-it-from-service",
+            "name": "Model: return it from service",
+            "description": null
+        },
+        {
+            "id": "model-refactor-to-getaveragequantitymade",
+            "name": "Model: Refactor to getAverageQuantityMade()",
+            "description": null
+        },
+        {
+            "id": "model-update-controller-tpl",
+            "name": "Model: update controller + tpl",
+            "description": null
+        },
+        {
+            "id": "model-use-constructor",
+            "name": "Model: use constructor",
+            "description": null
         }
     ],
-    "sha": "357e50eb93dc452ca9036eba4406e42d19f7ce6c"
+    "sha": "9a81247a280646d2a4292b55c19078f0bddeeffb"
 }

@@ -1,8 +1,8 @@
 diff --git a/src/AppBundle/Controller/ChurroTimeEntryController.php b/src/AppBundle/Controller/ChurroTimeEntryController.php
-index 47301c7..cad75f2 100644
+index a8cea65..da0684f 100644
 --- a/src/AppBundle/Controller/ChurroTimeEntryController.php
 +++ b/src/AppBundle/Controller/ChurroTimeEntryController.php
-@@ -25,7 +25,8 @@ class ChurroTimeEntryController extends Controller
+@@ -24,7 +24,8 @@ class ChurroTimeEntryController extends Controller
              ->get('logger')
              ->info(sprintf('Printing %d time entries', count($timeEntries)));
  

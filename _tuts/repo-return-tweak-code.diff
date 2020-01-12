@@ -1,0 +1,14 @@
+diff --git a/src/AppBundle/Repository/ChurroTimeEntryRepository.php b/src/AppBundle/Repository/ChurroTimeEntryRepository.php
+index aeaf1d8..32c77b1 100644
+--- a/src/AppBundle/Repository/ChurroTimeEntryRepository.php
++++ b/src/AppBundle/Repository/ChurroTimeEntryRepository.php
+@@ -8,8 +8,7 @@ class ChurroTimeEntryRepository extends EntityRepository
+ {
+     public function findAllDuringLastWeekOrderedNewestFirst()
+     {
+-        $timeEntries = $this->doctrine
+-            ->getRepository(ChurroTimeEntry::class)
++        return $this
+             ->createQueryBuilder('churro_time_entry')
+             ->where('churro_time_entry.startCookingAt > :date')
+             ->setParameter('date', new \DateTime('-1 week'))

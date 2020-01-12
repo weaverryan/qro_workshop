@@ -1,0 +1,18 @@
+diff --git a/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php b/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
+index f14e072..b3c1c83 100644
+--- a/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
++++ b/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
+@@ -27,12 +27,7 @@ class ChurroTimeEntryStatsHelper
+     {
+         $timeEntries = $this->doctrine
+             ->getRepository(ChurroTimeEntry::class)
+-            ->createQueryBuilder('churro_time_entry')
+-            ->where('churro_time_entry.startCookingAt > :date')
+-            ->setParameter('date', new \DateTime('-1 week'))
+-            ->orderBy('churro_time_entry.startCookingAt', 'DESC')
+-            ->getQuery()
+-            ->getResult();
++            ->findAllDuringLastWeekOrderedNewestFirst();
+ 
+         $types = [];
+         foreach ($timeEntries as $timeEntry) {

@@ -1,0 +1,19 @@
+diff --git a/src/AppBundle/Repository/ChurroTimeEntryRepository.php b/src/AppBundle/Repository/ChurroTimeEntryRepository.php
+index 32c77b1..0c07a7e 100644
+--- a/src/AppBundle/Repository/ChurroTimeEntryRepository.php
++++ b/src/AppBundle/Repository/ChurroTimeEntryRepository.php
+@@ -2,10 +2,14 @@
+ 
+ namespace AppBundle\Repository;
+ 
++use AppBundle\Entity\ChurroTimeEntry;
+ use Doctrine\ORM\EntityRepository;
+ 
+ class ChurroTimeEntryRepository extends EntityRepository
+ {
++    /**
++     * @return ChurroTimeEntry[]
++     */
+     public function findAllDuringLastWeekOrderedNewestFirst()
+     {
+         return $this

@@ -1,8 +1,8 @@
 diff --git a/src/AppBundle/Controller/ChurroTimeEntryController.php b/src/AppBundle/Controller/ChurroTimeEntryController.php
-index b75bc29..4d6c541 100644
+index 2e06a41..1d2b49a 100644
 --- a/src/AppBundle/Controller/ChurroTimeEntryController.php
 +++ b/src/AppBundle/Controller/ChurroTimeEntryController.php
-@@ -20,6 +20,34 @@ class ChurroTimeEntryController extends Controller
+@@ -19,6 +19,33 @@ class ChurroTimeEntryController extends Controller
              ->getQuery()
              ->getResult();
  
@@ -19,7 +19,6 @@ index b75bc29..4d6c541 100644
 +    {
 +        /** @var ChurroTimeEntry $timeEntry */
 +        $timeEntry = $this->getDoctrine()
-+            ->getManager()
 +            ->getRepository(ChurroTimeEntry::class)
 +            ->find($id);
 +
@@ -37,7 +36,7 @@ index b75bc29..4d6c541 100644
          $types = [];
          foreach ($timeEntries as $timeEntry) {
              if ($timeEntry->getStartCookingAt()->format('H') < 6) {
-@@ -49,27 +77,6 @@ class ChurroTimeEntryController extends Controller
+@@ -48,26 +75,6 @@ class ChurroTimeEntryController extends Controller
              }
          }
  
@@ -52,7 +51,6 @@ index b75bc29..4d6c541 100644
 -    {
 -        /** @var ChurroTimeEntry $timeEntry */
 -        $timeEntry = $this->getDoctrine()
--            ->getManager()
 -            ->getRepository(ChurroTimeEntry::class)
 -            ->find($id);
 -

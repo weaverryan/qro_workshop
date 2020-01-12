@@ -1,5 +1,5 @@
 diff --git a/src/AppBundle/Controller/ChurroTimeEntryController.php b/src/AppBundle/Controller/ChurroTimeEntryController.php
-index 554c7e5..8cec4a9 100644
+index 62946b4..1ffaec5 100644
 --- a/src/AppBundle/Controller/ChurroTimeEntryController.php
 +++ b/src/AppBundle/Controller/ChurroTimeEntryController.php
 @@ -4,6 +4,7 @@ namespace AppBundle\Controller;
@@ -10,7 +10,7 @@ index 554c7e5..8cec4a9 100644
  
  class ChurroTimeEntryController extends Controller
  {
-@@ -54,4 +55,9 @@ class ChurroTimeEntryController extends Controller
+@@ -53,4 +54,9 @@ class ChurroTimeEntryController extends Controller
              'avg' => $avg,
          ]);
      }

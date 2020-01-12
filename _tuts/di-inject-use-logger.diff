@@ -1,0 +1,41 @@
+diff --git a/src/AppBundle/Resources/config/services.yml b/src/AppBundle/Resources/config/services.yml
+index 1a7167c..69a7c1a 100644
+--- a/src/AppBundle/Resources/config/services.yml
++++ b/src/AppBundle/Resources/config/services.yml
+@@ -3,3 +3,4 @@ services:
+         class: AppBundle\Service\ChurroTimeEntryStatsHelper
+         arguments:
+             - '@doctrine'
++            - '@logger'
+diff --git a/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php b/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
+index 46f059d..f14e072 100644
+--- a/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
++++ b/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
+@@ -4,14 +4,17 @@ namespace AppBundle\Service;
+ 
+ use AppBundle\Entity\ChurroTimeEntry;
+ use Doctrine\Bundle\DoctrineBundle\Registry;
++use Symfony\Bridge\Monolog\Logger;
+ 
+ class ChurroTimeEntryStatsHelper
+ {
+     private $doctrine;
++    private $logger;
+ 
+-    public function __construct(Registry $doctrine)
++    public function __construct(Registry $doctrine, Logger $logger)
+     {
+         $this->doctrine = $doctrine;
++        $this->logger = $logger;
+     }
+ 
+     /**
+@@ -60,6 +63,8 @@ class ChurroTimeEntryStatsHelper
+             }
+         }
+ 
++        $this->logger->info('Most efficient type is '.$bestType);
++
+         return ['type' => $bestType, 'average' => $avg];
+     }
+ }
