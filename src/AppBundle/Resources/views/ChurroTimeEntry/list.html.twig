@@ -2,7 +2,20 @@
 
 {% block body %}
     <main role="main" class="container">
-        <h1>Churro Cooking Time Entries</h1>
+        <div class="row">
+            <div class="col-sm-8">
+                <h1>Churro Cooking Time Entries</h1>
+            </div>
+            <div class="col-sm-4">
+                <dl class="row" style="border: 2px solid #f7f7f9;">
+                    <dt class="col-sm-8">Most efficient type</dt>
+                    <dd class="col-sm-4">{{ bestType }}</dd>
+
+                    <dt class="col-sm-8">Average Made for type</dt>
+                    <dd class="col-sm-4">{{ avg }}</dd>
+                </dl>
+            </div>
+        </div>
 
         <table class="table">
             <thead>

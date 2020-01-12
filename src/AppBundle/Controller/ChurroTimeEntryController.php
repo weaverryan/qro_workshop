@@ -19,10 +19,39 @@ class ChurroTimeEntryController extends Controller
             ->getQuery()
             ->getResult();
 
+        $types = [];
+        foreach ($timeEntries as $timeEntry) {
+            if ($timeEntry->getStartCookingAt()->format('H') < 6) {
+                // skip
+            } else {
+                if (isset($types[$timeEntry->getType()])) {
+                    $types[$timeEntry->getType()][] = $timeEntry->getQuantityMade();
+                } else {
+                    $types[$timeEntry->getType()] = [];
+                    $types[$timeEntry->getType()][] = $timeEntry->getQuantityMade();
+                }
+            }
+        }
 
+        $bestType = null;
+        $avg = 0;
+        foreach ($types as $type => $data) {
+            $total = 0;
+            foreach ($data as $quantity) {
+                $total += $quantity;
+            }
+
+            $thisAverage = $total / count($data);
+            if ($thisAverage > $avg) {
+                $avg = $thisAverage;
+                $bestType = $type;
+            }
+        }
 
         return $this->render('AppBundle:ChurroTimeEntry:list.html.twig', [
             'timeEntries' => $timeEntries,
+            'bestType' => $bestType,
+            'avg' => $avg,
         ]);
     }
 }
