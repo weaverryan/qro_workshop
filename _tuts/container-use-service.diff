@@ -1,0 +1,14 @@
+diff --git a/src/AppBundle/Controller/ChurroTimeEntryController.php b/src/AppBundle/Controller/ChurroTimeEntryController.php
+index 47301c7..cad75f2 100644
+--- a/src/AppBundle/Controller/ChurroTimeEntryController.php
++++ b/src/AppBundle/Controller/ChurroTimeEntryController.php
+@@ -25,7 +25,8 @@ class ChurroTimeEntryController extends Controller
+             ->get('logger')
+             ->info(sprintf('Printing %d time entries', count($timeEntries)));
+ 
+-        $statsHelper = new ChurroTimeEntryStatsHelper();
++        $statsHelper = $this->container
++            ->get('app.churro_time_entry_stats_helper');
+         $bestTypeData = $statsHelper->getMostEfficientTypeData($timeEntries);
+ 
+         return $this->render('AppBundle:ChurroTimeEntry:list.html.twig', [

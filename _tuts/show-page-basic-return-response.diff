@@ -1,0 +1,35 @@
+diff --git a/src/AppBundle/Controller/ChurroTimeEntryController.php b/src/AppBundle/Controller/ChurroTimeEntryController.php
+index 554c7e5..8cec4a9 100644
+--- a/src/AppBundle/Controller/ChurroTimeEntryController.php
++++ b/src/AppBundle/Controller/ChurroTimeEntryController.php
+@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
+ 
+ use AppBundle\Entity\ChurroTimeEntry;
+ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
++use Symfony\Component\HttpFoundation\Response;
+ 
+ class ChurroTimeEntryController extends Controller
+ {
+@@ -54,4 +55,9 @@ class ChurroTimeEntryController extends Controller
+             'avg' => $avg,
+         ]);
+     }
++
++    public function showAction($id)
++    {
++        return new Response('Time entry '.$id);
++    }
+ }
+diff --git a/src/AppBundle/Resources/config/routing.yml b/src/AppBundle/Resources/config/routing.yml
+index af0db03..d3be246 100644
+--- a/src/AppBundle/Resources/config/routing.yml
++++ b/src/AppBundle/Resources/config/routing.yml
+@@ -7,3 +7,8 @@ app_churro_time_entry_list:
+     path: /time-entries
+     defaults:
+         _controller: 'AppBundle:ChurroTimeEntry:list'
++
++app_churro_time_entry_show:
++    path: /time-entries/{id}
++    defaults:
++        _controller: 'AppBundle:ChurroTimeEntry:show'

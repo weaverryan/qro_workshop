@@ -1,0 +1,18 @@
+diff --git a/src/AppBundle/Controller/ChurroTimeEntryController.php b/src/AppBundle/Controller/ChurroTimeEntryController.php
+index 4d6c541..03c00c3 100644
+--- a/src/AppBundle/Controller/ChurroTimeEntryController.php
++++ b/src/AppBundle/Controller/ChurroTimeEntryController.php
+@@ -46,6 +46,13 @@ class ChurroTimeEntryController extends Controller
+         ]);
+     }
+ 
++    /**
++     * Determines which "type" cooks the most churros on average
++     * and returns that inside an array with "type" and "average" keys.
++     *
++     * @param ChurroTimeEntry[] $timeEntries
++     * @return array
++     */
+     private function getMostEfficientTypeData(array $timeEntries)
+     {
+         $types = [];

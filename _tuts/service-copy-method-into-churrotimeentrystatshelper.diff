@@ -1,0 +1,103 @@
+diff --git a/src/AppBundle/Controller/ChurroTimeEntryController.php b/src/AppBundle/Controller/ChurroTimeEntryController.php
+index a6b864c..9f44af0 100644
+--- a/src/AppBundle/Controller/ChurroTimeEntryController.php
++++ b/src/AppBundle/Controller/ChurroTimeEntryController.php
+@@ -49,45 +49,4 @@ class ChurroTimeEntryController extends Controller
+             'timeEntry' => $timeEntry
+         ]);
+     }
+-
+-    /**
+-     * Determines which "type" cooks the most churros on average
+-     * and returns that inside an array with "type" and "average" keys.
+-     *
+-     * @param ChurroTimeEntry[] $timeEntries
+-     * @return array
+-     */
+-    private function getMostEfficientTypeData(array $timeEntries)
+-    {
+-        $types = [];
+-        foreach ($timeEntries as $timeEntry) {
+-            if ($timeEntry->getStartCookingAt()->format('H') < 6) {
+-                // skip
+-            } else {
+-                if (isset($types[$timeEntry->getType()])) {
+-                    $types[$timeEntry->getType()][] = $timeEntry->getQuantityMade();
+-                } else {
+-                    $types[$timeEntry->getType()] = [];
+-                    $types[$timeEntry->getType()][] = $timeEntry->getQuantityMade();
+-                }
+-            }
+-        }
+-
+-        $bestType = null;
+-        $avg = 0;
+-        foreach ($types as $type => $data) {
+-            $total = 0;
+-            foreach ($data as $quantity) {
+-                $total += $quantity;
+-            }
+-
+-            $thisAverage = $total / count($data);
+-            if ($thisAverage > $avg) {
+-                $avg = $thisAverage;
+-                $bestType = $type;
+-            }
+-        }
+-
+-        return ['type' => $bestType, 'average' => $avg];
+-    }
+ }
+diff --git a/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php b/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
+new file mode 100644
+index 0000000..30b47ef
+--- /dev/null
++++ b/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
+@@ -0,0 +1,47 @@
++<?php
++
++namespace AppBundle\Service;
++
++class ChurroTimeEntryStatsHelper
++{
++    /**
++     * Determines which "type" cooks the most churros on average
++     * and returns that inside an array with "type" and "average" keys.
++     *
++     * @param ChurroTimeEntry[] $timeEntries
++     * @return array
++     */
++    private function getMostEfficientTypeData(array $timeEntries)
++    {
++        $types = [];
++        foreach ($timeEntries as $timeEntry) {
++            if ($timeEntry->getStartCookingAt()->format('H') < 6) {
++                // skip
++            } else {
++                if (isset($types[$timeEntry->getType()])) {
++                    $types[$timeEntry->getType()][] = $timeEntry->getQuantityMade();
++                } else {
++                    $types[$timeEntry->getType()] = [];
++                    $types[$timeEntry->getType()][] = $timeEntry->getQuantityMade();
++                }
++            }
++        }
++
++        $bestType = null;
++        $avg = 0;
++        foreach ($types as $type => $data) {
++            $total = 0;
++            foreach ($data as $quantity) {
++                $total += $quantity;
++            }
++
++            $thisAverage = $total / count($data);
++            if ($thisAverage > $avg) {
++                $avg = $thisAverage;
++                $bestType = $type;
++            }
++        }
++
++        return ['type' => $bestType, 'average' => $avg];
++    }
++}

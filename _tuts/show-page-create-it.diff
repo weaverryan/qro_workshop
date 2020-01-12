@@ -1,0 +1,36 @@
+diff --git a/src/AppBundle/Controller/ChurroTimeEntryController.php b/src/AppBundle/Controller/ChurroTimeEntryController.php
+index 99fd02b..ba2d663 100644
+--- a/src/AppBundle/Controller/ChurroTimeEntryController.php
++++ b/src/AppBundle/Controller/ChurroTimeEntryController.php
+@@ -67,6 +67,8 @@ class ChurroTimeEntryController extends Controller
+             throw $this->createNotFoundException('no time entry for '.$id);
+         }
+ 
+-        return new Response('Time entry quantity '.$timeEntry->getQuantityMade());
++        return $this->render('AppBundle:ChurroTimeEntry:show.html.twig', [
++            'timeEntry' => $timeEntry
++        ]);
+     }
+ }
+diff --git a/src/AppBundle/Resources/views/ChurroTimeEntry/show.html.twig b/src/AppBundle/Resources/views/ChurroTimeEntry/show.html.twig
+new file mode 100644
+index 0000000..5006a5c
+--- /dev/null
++++ b/src/AppBundle/Resources/views/ChurroTimeEntry/show.html.twig
+@@ -0,0 +1,16 @@
++{% extends 'AppBundle::base.html.twig' %}
++
++{% block body %}
++    <div class="container">
++        <h1>Time entry {{ timeEntry.id }}</h1>
++        <table class="table">
++            <tbody>
++                <tr>
++                    <th>ID</th>
++                    <td>{{ timeEntry.id }}</td>
++                </tr>
++            </tbody>
++        </table>
++    </div>
++{% endblock %}
++

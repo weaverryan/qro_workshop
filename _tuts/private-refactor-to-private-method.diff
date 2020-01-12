@@ -1,0 +1,68 @@
+diff --git a/src/AppBundle/Controller/ChurroTimeEntryController.php b/src/AppBundle/Controller/ChurroTimeEntryController.php
+index b75bc29..4d6c541 100644
+--- a/src/AppBundle/Controller/ChurroTimeEntryController.php
++++ b/src/AppBundle/Controller/ChurroTimeEntryController.php
+@@ -20,6 +20,34 @@ class ChurroTimeEntryController extends Controller
+             ->getQuery()
+             ->getResult();
+ 
++        $bestTypeData = $this->getMostEfficientTypeData($timeEntries);
++
++        return $this->render('AppBundle:ChurroTimeEntry:list.html.twig', [
++            'timeEntries' => $timeEntries,
++            'bestType' => $bestTypeData['type'],
++            'avg' => $bestTypeData['average'],
++        ]);
++    }
++
++    public function showAction($id)
++    {
++        /** @var ChurroTimeEntry $timeEntry */
++        $timeEntry = $this->getDoctrine()
++            ->getManager()
++            ->getRepository(ChurroTimeEntry::class)
++            ->find($id);
++
++        if (!$timeEntry) {
++            throw $this->createNotFoundException('no time entry for '.$id);
++        }
++
++        return $this->render('AppBundle:ChurroTimeEntry:show.html.twig', [
++            'timeEntry' => $timeEntry
++        ]);
++    }
++
++    private function getMostEfficientTypeData(array $timeEntries)
++    {
+         $types = [];
+         foreach ($timeEntries as $timeEntry) {
+             if ($timeEntry->getStartCookingAt()->format('H') < 6) {
+@@ -49,27 +77,6 @@ class ChurroTimeEntryController extends Controller
+             }
+         }
+ 
+-        return $this->render('AppBundle:ChurroTimeEntry:list.html.twig', [
+-            'timeEntries' => $timeEntries,
+-            'bestType' => $bestType,
+-            'avg' => $avg,
+-        ]);
+-    }
+-
+-    public function showAction($id)
+-    {
+-        /** @var ChurroTimeEntry $timeEntry */
+-        $timeEntry = $this->getDoctrine()
+-            ->getManager()
+-            ->getRepository(ChurroTimeEntry::class)
+-            ->find($id);
+-
+-        if (!$timeEntry) {
+-            throw $this->createNotFoundException('no time entry for '.$id);
+-        }
+-
+-        return $this->render('AppBundle:ChurroTimeEntry:show.html.twig', [
+-            'timeEntry' => $timeEntry
+-        ]);
++        return ['type' => $bestType, 'average' => $avg];
+     }
+ }

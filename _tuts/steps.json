@@ -1,0 +1,90 @@
+{
+    "steps": [
+        {
+            "id": "start",
+            "name": "start",
+            "description": null
+        },
+        {
+            "id": "show-page-basic-return-response",
+            "name": "Show page: basic return Response",
+            "description": null
+        },
+        {
+            "id": "show-page-query",
+            "name": "Show page: query",
+            "description": null
+        },
+        {
+            "id": "show-page-create-it",
+            "name": "Show page: create it",
+            "description": null
+        },
+        {
+            "id": "show-page-delete-me",
+            "name": "Show page: delete me",
+            "description": null
+        },
+        {
+            "id": "show-page-inline-phpdoc",
+            "name": "Show page: inline phpdoc",
+            "description": null
+        },
+        {
+            "id": "show-page-finish-template",
+            "name": "Show page: finish template",
+            "description": null
+        },
+        {
+            "id": "show-page-link-to-it",
+            "name": "Show page: link to it",
+            "description": null
+        },
+        {
+            "id": "private-refactor-to-private-method",
+            "name": "Private: refactor to private method",
+            "description": null
+        },
+        {
+            "id": "private-phpdoc",
+            "name": "Private: phpdoc",
+            "description": null
+        },
+        {
+            "id": "container-use-this-container-get",
+            "name": "Container: use $this->container->get",
+            "description": null
+        },
+        {
+            "id": "container-log-something",
+            "name": "Container: log something",
+            "description": null
+        },
+        {
+            "id": "service-copy-method-into-churrotimeentrystatshelper",
+            "name": "Service: copy method into ChurroTimeEntryStatsHelper",
+            "description": null
+        },
+        {
+            "id": "service-make-public",
+            "name": "Service: make public",
+            "description": null
+        },
+        {
+            "id": "service-instantiate-in-controller",
+            "name": "Service: instantiate in controller",
+            "description": null
+        },
+        {
+            "id": "container-register-service",
+            "name": "Container: register service",
+            "description": null
+        },
+        {
+            "id": "container-use-service",
+            "name": "Container: use service",
+            "description": null
+        }
+    ],
+    "sha": "357e50eb93dc452ca9036eba4406e42d19f7ce6c"
+}

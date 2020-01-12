@@ -1,0 +1,13 @@
+diff --git a/src/AppBundle/Controller/ChurroTimeEntryController.php b/src/AppBundle/Controller/ChurroTimeEntryController.php
+index 03c00c3..052eb9d 100644
+--- a/src/AppBundle/Controller/ChurroTimeEntryController.php
++++ b/src/AppBundle/Controller/ChurroTimeEntryController.php
+@@ -10,7 +10,7 @@ class ChurroTimeEntryController extends Controller
+ {
+     public function listAction()
+     {
+-        $timeEntries = $this->getDoctrine()
++        $timeEntries = $this->container->get('doctrine')
+             ->getManager()
+             ->getRepository(ChurroTimeEntry::class)
+             ->createQueryBuilder('churro_time_entry')

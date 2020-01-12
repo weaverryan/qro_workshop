@@ -1,0 +1,27 @@
+diff --git a/src/AppBundle/Resources/views/ChurroTimeEntry/show.html.twig b/src/AppBundle/Resources/views/ChurroTimeEntry/show.html.twig
+index 5006a5c..a9870fa 100644
+--- a/src/AppBundle/Resources/views/ChurroTimeEntry/show.html.twig
++++ b/src/AppBundle/Resources/views/ChurroTimeEntry/show.html.twig
+@@ -9,6 +9,22 @@
+                     <th>ID</th>
+                     <td>{{ timeEntry.id }}</td>
+                 </tr>
++                <tr>
++                    <th>Cook time</th>
++                    <td>
++                        {{ timeEntry.startCookingAt|date('H:i') }}
++                        -
++                        {{ timeEntry.endCookingAt|date('H:i') }}
++                    </td>
++                </tr>
++                <tr>
++                    <th>Cleanup time</th>
++                    <td>
++                        {{ timeEntry.startCleanupAt|date('H:i') }}
++                        -
++                        {{ timeEntry.endCleanupAt|date('H:i') }}
++                    </td>
++                </tr>
+             </tbody>
+         </table>
+     </div>

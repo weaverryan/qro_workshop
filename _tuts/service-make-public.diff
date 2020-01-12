@@ -1,0 +1,22 @@
+diff --git a/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php b/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
+index 30b47ef..e831bdc 100644
+--- a/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
++++ b/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
+@@ -2,6 +2,8 @@
+ 
+ namespace AppBundle\Service;
+ 
++use AppBundle\Entity\ChurroTimeEntry;
++
+ class ChurroTimeEntryStatsHelper
+ {
+     /**
+@@ -11,7 +13,7 @@ class ChurroTimeEntryStatsHelper
+      * @param ChurroTimeEntry[] $timeEntries
+      * @return array
+      */
+-    private function getMostEfficientTypeData(array $timeEntries)
++    public function getMostEfficientTypeData(array $timeEntries)
+     {
+         $types = [];
+         foreach ($timeEntries as $timeEntry) {
