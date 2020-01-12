@@ -47,6 +47,12 @@ class ChurroTimeEntry
      */
     private $quantityMade;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Baker")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $bakedBy;
+
     public function getId()
     {
         return $this->id;
@@ -110,5 +116,15 @@ class ChurroTimeEntry
     public function setQuantityMade($quantityMade)
     {
         $this->quantityMade = $quantityMade;
+    }
+
+    public function getBakedBy()
+    {
+        return $this->bakedBy;
+    }
+
+    public function setBakedBy($bakedBy)
+    {
+        $this->bakedBy = $bakedBy;
     }
 }
