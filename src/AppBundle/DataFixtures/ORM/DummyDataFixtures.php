@@ -19,9 +19,6 @@ class DummyDataFixtures implements FixtureInterface
         ];
 
         for ($i = 0; $i < 20; $i++) {
-            $timeEntry = new ChurroTimeEntry();
-            $timeEntry->setType($types[array_rand($types)]);
-
             $startCookingTime = \DateTime::createFromFormat(
                 'Y-m-d H:i',
                 sprintf('2020-01-10 %s:%s', rand(0, 23), rand(10, 59))
@@ -34,10 +31,13 @@ class DummyDataFixtures implements FixtureInterface
             $endCleanupTime = clone $startCleanupTime;
             $endCleanupTime->modify(sprintf('+%s minutes', rand(2, 40)));
 
+            $timeEntry = new ChurroTimeEntry();
+            $timeEntry->setType($types[array_rand($types)]);
             $timeEntry->setStartCookingAt($startCookingTime);
             $timeEntry->setEndCookingAt($endCookingTime);
             $timeEntry->setStartCleanupAt($startCleanupTime);
             $timeEntry->setEndCleanupAt($endCleanupTime);
+            $timeEntry->setQuantityMade(rand(1, 25));
 
             $manager->persist($timeEntry);
         }

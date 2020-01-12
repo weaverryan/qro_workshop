@@ -19,6 +19,8 @@ class ChurroTimeEntryController extends Controller
             ->getQuery()
             ->getResult();
 
+
+
         return $this->render('AppBundle:ChurroTimeEntry:list.html.twig', [
             'timeEntries' => $timeEntries,
         ]);

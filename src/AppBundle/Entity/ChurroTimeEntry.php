@@ -42,6 +42,11 @@ class ChurroTimeEntry
      */
     private $endCleanupAt;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $quantityMade;
+
     public function getId()
     {
         return $this->id;
@@ -95,5 +100,15 @@ class ChurroTimeEntry
     public function setEndCleanupAt($endCleanupAt)
     {
         $this->endCleanupAt = $endCleanupAt;
+    }
+
+    public function getQuantityMade()
+    {
+        return $this->quantityMade;
+    }
+
+    public function setQuantityMade($quantityMade)
+    {
+        $this->quantityMade = $quantityMade;
     }
 }

@@ -9,6 +9,7 @@
                 <tr>
                     <th>id</th>
                     <th>type</th>
+                    <th>quantity made</th>
                     <th>cook time</th>
                     <th>cleanup time</th>
                 </tr>
@@ -18,8 +19,17 @@
                     <tr>
                         <td>{{ timeEntry.id }}</td>
                         <td>{{ timeEntry.type }}</td>
-                        <td>{{ ((timeEntry.endCookingAt.timestamp - timeEntry.startCookingAt.timestamp) / 60)|round }}</td>
-                        <td>{{ ((timeEntry.endCleanupAt.timestamp - timeEntry.startCleanupAt.timestamp) / 60)|round }}</td>
+                        <td>{{ timeEntry.quantityMade }}</td>
+                        <td>
+                            :{{ ((timeEntry.endCookingAt.timestamp - timeEntry.startCookingAt.timestamp) / 60)|round }}
+                        </td>
+                        <td
+                            {% if ((timeEntry.endCleanupAt.timestamp - timeEntry.startCleanupAt.timestamp) / 60) > 30 %}
+                                class="text-danger"
+                            {% endif %}
+                        >
+                            :{{ ((timeEntry.endCleanupAt.timestamp - timeEntry.startCleanupAt.timestamp) / 60)|round }}
+                        </td>
                     </tr>
                 {% endfor %}
             </tbody>
