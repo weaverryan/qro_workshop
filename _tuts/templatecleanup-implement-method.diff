@@ -1,0 +1,27 @@
+diff --git a/src/AppBundle/Entity/ChurroTimeEntry.php b/src/AppBundle/Entity/ChurroTimeEntry.php
+index d598c58..5ad4cbd 100644
+--- a/src/AppBundle/Entity/ChurroTimeEntry.php
++++ b/src/AppBundle/Entity/ChurroTimeEntry.php
+@@ -160,4 +160,9 @@ class ChurroTimeEntry
+ 
+         return $this->getBakedBy()->getAbbreviatedName();
+     }
++
++    public function getCookingDuration()
++    {
++        return $this->getEndCookingAt()->getTimestamp() - $this->getStartCookingAt()->getTimestamp();
++    }
+ }
+diff --git a/src/AppBundle/Resources/views/ChurroTimeEntry/list.html.twig b/src/AppBundle/Resources/views/ChurroTimeEntry/list.html.twig
+index bcace97..923be90 100644
+--- a/src/AppBundle/Resources/views/ChurroTimeEntry/list.html.twig
++++ b/src/AppBundle/Resources/views/ChurroTimeEntry/list.html.twig
+@@ -29,7 +29,7 @@
+                         <td>{{ timeEntry.type }}</td>
+                         <td>{{ timeEntry.quantityMade }}</td>
+                         <td>
+-                            :{{ ((timeEntry.endCookingAt.timestamp - timeEntry.startCookingAt.timestamp) / 60)|round }}
++                            :{{ ((timeEntry.cookingDuration) / 60)|round }}
+                         </td>
+                         <td
+                             {% if ((timeEntry.endCleanupAt.timestamp - timeEntry.startCleanupAt.timestamp) / 60) > 30 %}

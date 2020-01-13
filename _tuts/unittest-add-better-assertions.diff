@@ -1,0 +1,13 @@
+diff --git a/src/AppBundle/Tests/Service/ChurroTimeEntryStatsHelperTest.php b/src/AppBundle/Tests/Service/ChurroTimeEntryStatsHelperTest.php
+index 6337042..33e32f6 100644
+--- a/src/AppBundle/Tests/Service/ChurroTimeEntryStatsHelperTest.php
++++ b/src/AppBundle/Tests/Service/ChurroTimeEntryStatsHelperTest.php
+@@ -41,5 +41,7 @@ class ChurroTimeEntryStatsHelperTest extends TestCase
+         $helper = new ChurroTimeEntryStatsHelper($registry, $logger);
+         $stats = $helper->getMostEfficientTypeData();
+         $this->assertInstanceOf(ChurroTypeStats::class, $stats);
++        $this->assertSame(15, $stats->getAverageQuantityMade());
++        $this->assertSame('chocolate', $stats->getType());
+     }
+ }
+\ No newline at end of file

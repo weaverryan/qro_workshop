@@ -1,0 +1,14 @@
+diff --git a/src/AppBundle/Entity/ChurroTimeEntry.php b/src/AppBundle/Entity/ChurroTimeEntry.php
+index 5ad4cbd..65d0484 100644
+--- a/src/AppBundle/Entity/ChurroTimeEntry.php
++++ b/src/AppBundle/Entity/ChurroTimeEntry.php
+@@ -161,6 +161,9 @@ class ChurroTimeEntry
+         return $this->getBakedBy()->getAbbreviatedName();
+     }
+ 
++    /**
++     * @return int The time in seconds
++     */
+     public function getCookingDuration()
+     {
+         return $this->getEndCookingAt()->getTimestamp() - $this->getStartCookingAt()->getTimestamp();

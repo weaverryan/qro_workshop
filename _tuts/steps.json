@@ -16,6 +16,11 @@
             "description": null
         },
         {
+            "id": "show-page-404-if-not-found",
+            "name": "Show page: 404 if not found",
+            "description": null
+        },
+        {
             "id": "show-page-create-it",
             "name": "Show page: create it",
             "description": null
@@ -128,6 +133,11 @@
         {
             "id": "di-inject-use-logger",
             "name": "DI: inject+use logger",
+            "description": null
+        },
+        {
+            "id": "di-loggerinterface",
+            "name": "DI: LoggerInterface",
             "description": null
         },
         {
@@ -254,7 +264,147 @@
             "id": "calis-else-reverse-use-continue",
             "name": "Calis Else: reverse & use continue",
             "description": null
+        },
+        {
+            "id": "smart-methods-print-baker-name",
+            "name": "Smart Methods: Print baker name",
+            "description": null
+        },
+        {
+            "id": "smart-methods-baker-getfullname",
+            "name": "Smart Methods: Baker::getFullName()",
+            "description": null
+        },
+        {
+            "id": "unittest-bakertest-bootstrap",
+            "name": "UnitTest: BakerTest bootstrap",
+            "description": null
+        },
+        {
+            "id": "unittest-basic-assertion",
+            "name": "UnitTest: basic assertion",
+            "description": null
+        },
+        {
+            "id": "unittest-unhappy-case",
+            "name": "UnitTest: Unhappy case",
+            "description": null
+        },
+        {
+            "id": "unittest-fix-code",
+            "name": "UnitTest: fix code",
+            "description": null
+        },
+        {
+            "id": "unittest-data-provider",
+            "name": "UnitTest: data provider",
+            "description": null
+        },
+        {
+            "id": "unittest-bootstrap-churrotimeentrystatshelpertest",
+            "name": "UnitTest: bootstrap ChurroTimeEntryStatsHelperTest",
+            "description": null
+        },
+        {
+            "id": "unittest-mock-2-dependencies",
+            "name": "UnitTest: Mock 2 dependencies",
+            "description": null
+        },
+        {
+            "id": "unittest-mock-repository",
+            "name": "UnitTest: Mock repository",
+            "description": null
+        },
+        {
+            "id": "unittest-mock-return-time-entries",
+            "name": "UnitTest: mock & return time entries",
+            "description": null
+        },
+        {
+            "id": "unittest-add-better-assertions",
+            "name": "UnitTest: Add better assertions",
+            "description": null
+        },
+        {
+            "id": "demeter-ignore-jwage-data",
+            "name": "Demeter: ignore jwage data",
+            "description": null
+        },
+        {
+            "id": "demeter-add-getbakerusername",
+            "name": "Demeter: add getBakerUsername()",
+            "description": null
+        },
+        {
+            "id": "demeter-add-exception",
+            "name": "Demeter: add exception",
+            "description": null
+        },
+        {
+            "id": "demeter-update-test",
+            "name": "Demeter: update test",
+            "description": null
+        },
+        {
+            "id": "demeter-fix-demeter-in-show-tpl",
+            "name": "Demeter: fix demeter in show tpl",
+            "description": null
+        },
+        {
+            "id": "demeter-getbakedby-return-type",
+            "name": "Demeter: getBakedBy() return type",
+            "description": null
+        },
+        {
+            "id": "templatecleanup-unit-test-getcookingduration",
+            "name": "TemplateCleanup: unit test getCookingDuration()",
+            "description": null
+        },
+        {
+            "id": "templatecleanup-implement-method",
+            "name": "TemplateCleanup: implement method",
+            "description": null
+        },
+        {
+            "id": "templatecleanup-return-int",
+            "name": "TemplateCleanup: @return int",
+            "description": null
+        },
+        {
+            "id": "templatecleanup-add-other-method",
+            "name": "TemplateCleanup: add other method",
+            "description": null
+        },
+        {
+            "id": "templatecleanup-didcleanuptaketoolong",
+            "name": "TemplateCleanup: didCleanupTakeTooLong()",
+            "description": null
+        },
+        {
+            "id": "templatecleanup-adding-explanation",
+            "name": "TemplateCleanup: adding explanation",
+            "description": null
+        },
+        {
+            "id": "edit-basic-edit-page",
+            "name": "Edit: basic edit page",
+            "description": null
+        },
+        {
+            "id": "edit-bootstrap-form-class",
+            "name": "Edit: Bootstrap form class",
+            "description": null
+        },
+        {
+            "id": "edit-add-basic-fields-to-form",
+            "name": "Edit: add basic fields to form",
+            "description": null
+        },
+        {
+            "id": "edit-create-render-form",
+            "name": "Edit: create & render form",
+            "description": null
         }
     ],
-    "sha": "cf11b6a55fd0d6e9ee0e9039ec5704458a5864a0"
+    "sha": "29f16ed03295f2d562e6d299519b5e727aadb6ef"
 }

@@ -1,0 +1,15 @@
+diff --git a/src/AppBundle/Entity/Baker.php b/src/AppBundle/Entity/Baker.php
+index 2a95426..c7d3e30 100644
+--- a/src/AppBundle/Entity/Baker.php
++++ b/src/AppBundle/Entity/Baker.php
+@@ -69,6 +69,10 @@ class Baker
+ 
+     public function getAbbreviatedName()
+     {
++        if (!$this->lastName) {
++            return $this->firstName;
++        }
++
+         return $this->firstName . ' ' .substr($this->lastName, 0, 1) . '.';
+     }
+ }

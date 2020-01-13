@@ -1,0 +1,15 @@
+diff --git a/src/AppBundle/Controller/ChurroTimeEntryController.php b/src/AppBundle/Controller/ChurroTimeEntryController.php
+index 26f2562..e195160 100644
+--- a/src/AppBundle/Controller/ChurroTimeEntryController.php
++++ b/src/AppBundle/Controller/ChurroTimeEntryController.php
+@@ -79,6 +79,10 @@ class ChurroTimeEntryController extends Controller
+             ->getRepository(ChurroTimeEntry::class)
+             ->find($id);
+ 
++        if (!$timeEntry) {
++            throw $this->createNotFoundException('no time entry for '.$id);
++        }
++
+         return new Response('Time entry quantity '.$timeEntry->getQuantityMade());
+     }
+ }

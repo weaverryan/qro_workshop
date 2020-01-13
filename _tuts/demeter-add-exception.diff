@@ -1,0 +1,15 @@
+diff --git a/src/AppBundle/Entity/ChurroTimeEntry.php b/src/AppBundle/Entity/ChurroTimeEntry.php
+index 07d9902..9d33530 100644
+--- a/src/AppBundle/Entity/ChurroTimeEntry.php
++++ b/src/AppBundle/Entity/ChurroTimeEntry.php
+@@ -142,6 +142,10 @@ class ChurroTimeEntry
+ 
+     public function getBakerUsername()
+     {
++        if (!$this->bakedBy) {
++            throw new \Exception('This ChurroTimeEntry does not have a Baker!');
++        }
++
+         return $this->bakedBy->getUsername();
+     }
+ }

@@ -1,5 +1,5 @@
 diff --git a/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php b/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
-index a7b83ef..2a4b1f1 100644
+index f67ff14..d96733c 100644
 --- a/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
 +++ b/src/AppBundle/Service/ChurroTimeEntryStatsHelper.php
 @@ -53,12 +53,8 @@ class ChurroTimeEntryStatsHelper

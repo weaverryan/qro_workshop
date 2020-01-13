@@ -1,0 +1,31 @@
+diff --git a/src/AppBundle/Entity/ChurroTimeEntry.php b/src/AppBundle/Entity/ChurroTimeEntry.php
+index 9d33530..aa4f4eb 100644
+--- a/src/AppBundle/Entity/ChurroTimeEntry.php
++++ b/src/AppBundle/Entity/ChurroTimeEntry.php
+@@ -148,4 +148,13 @@ class ChurroTimeEntry
+ 
+         return $this->bakedBy->getUsername();
+     }
++
++    public function getBakerDisplayName()
++    {
++        if (!$this->bakedBy) {
++            throw new \Exception('This ChurroTimeEntry does not have a Baker!');
++        }
++
++        return $this->bakedBy->getAbbreviatedName();
++    }
+ }
+diff --git a/src/AppBundle/Resources/views/ChurroTimeEntry/show.html.twig b/src/AppBundle/Resources/views/ChurroTimeEntry/show.html.twig
+index ce2d9ec..f8329e6 100644
+--- a/src/AppBundle/Resources/views/ChurroTimeEntry/show.html.twig
++++ b/src/AppBundle/Resources/views/ChurroTimeEntry/show.html.twig
+@@ -5,7 +5,7 @@
+         <h1>Time entry {{ timeEntry.id }}</h1>
+ 
+         <span class="badge badge-info">
+-            baked by {{ timeEntry.bakedBy.abbreviatedName }}
++            baked by {{ timeEntry.bakerDisplayName }}
+         </span>
+ 
+         <table class="table">

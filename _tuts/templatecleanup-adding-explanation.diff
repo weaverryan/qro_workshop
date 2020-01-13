@@ -1,0 +1,14 @@
+diff --git a/src/AppBundle/Entity/ChurroTimeEntry.php b/src/AppBundle/Entity/ChurroTimeEntry.php
+index 8c49eee..4b9a6eb 100644
+--- a/src/AppBundle/Entity/ChurroTimeEntry.php
++++ b/src/AppBundle/Entity/ChurroTimeEntry.php
+@@ -178,6 +178,9 @@ class ChurroTimeEntry
+     }
+ 
+     /**
++     * To help improve cleanup times, we're identifying
++     * any cleanup times longer than 30 minutes as "too long".
++     *
+      * @return bool
+      */
+     public function didCleanupTakeTooLong()

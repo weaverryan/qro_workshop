@@ -1,0 +1,19 @@
+diff --git a/src/AppBundle/Form/ChurroTimeEntryForm.php b/src/AppBundle/Form/ChurroTimeEntryForm.php
+new file mode 100644
+index 0000000..701bb9c
+--- /dev/null
++++ b/src/AppBundle/Form/ChurroTimeEntryForm.php
+@@ -0,0 +1,13 @@
++<?php
++
++namespace AppBundle\Form;
++
++use Symfony\Component\Form\AbstractType;
++use Symfony\Component\Form\FormBuilderInterface;
++
++class ChurroTimeEntryForm extends AbstractType
++{
++    public function buildForm(FormBuilderInterface $builder, array $options)
++    {
++    }
++}

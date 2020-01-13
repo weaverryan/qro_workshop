@@ -1,0 +1,37 @@
+diff --git a/src/AppBundle/Tests/Entity/BakerTest.php b/src/AppBundle/Tests/Entity/BakerTest.php
+index 8c8b161..0237e71 100644
+--- a/src/AppBundle/Tests/Entity/BakerTest.php
++++ b/src/AppBundle/Tests/Entity/BakerTest.php
+@@ -7,18 +7,24 @@ use PHPUnit\Framework\TestCase;
+ 
+ class BakerTest extends TestCase
+ {
+-    public function testGetAbbreviatedName()
++    /**
++     * @dataProvider getAbbreviatedNameTests
++     */
++    public function testGetAbbreviatedName($firstName, $lastName, $expected)
+     {
+         $baker = new Baker();
+-        $baker->setFirstName('Ryan');
+-        $baker->setLastName('Weaver');
++        $baker->setFirstName($firstName);
++        $baker->setLastName($lastName);
+ 
+-        $this->assertSame('Ryan W.', $baker->getAbbreviatedName());
+-
+-        $baker = new Baker();
+-        $baker->setFirstName('Ryan');
++        $this->assertSame($expected, $baker->getAbbreviatedName());
++    }
+ 
+-        $this->assertSame('Ryan', $baker->getAbbreviatedName());
++    public function getAbbreviatedNameTests()
++    {
++        return [
++            ['Ryan', 'Weaver', 'Ryan W.'],
++            ['Ryan', null, 'Ryan'],
++        ];
+     }
+ }
+ 

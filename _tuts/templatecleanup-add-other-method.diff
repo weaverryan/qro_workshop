@@ -1,0 +1,35 @@
+diff --git a/src/AppBundle/Entity/ChurroTimeEntry.php b/src/AppBundle/Entity/ChurroTimeEntry.php
+index 65d0484..7902f16 100644
+--- a/src/AppBundle/Entity/ChurroTimeEntry.php
++++ b/src/AppBundle/Entity/ChurroTimeEntry.php
+@@ -168,4 +168,12 @@ class ChurroTimeEntry
+     {
+         return $this->getEndCookingAt()->getTimestamp() - $this->getStartCookingAt()->getTimestamp();
+     }
++
++    /**
++     * @return int The time in seconds
++     */
++    public function getCleanupDuration()
++    {
++        return $this->getEndCleanupAt()->getTimestamp() - $this->getStartCleanupAt()->getTimestamp();
++    }
+ }
+diff --git a/src/AppBundle/Resources/views/ChurroTimeEntry/list.html.twig b/src/AppBundle/Resources/views/ChurroTimeEntry/list.html.twig
+index 923be90..86f8dcb 100644
+--- a/src/AppBundle/Resources/views/ChurroTimeEntry/list.html.twig
++++ b/src/AppBundle/Resources/views/ChurroTimeEntry/list.html.twig
+@@ -32,11 +32,11 @@
+                             :{{ ((timeEntry.cookingDuration) / 60)|round }}
+                         </td>
+                         <td
+-                            {% if ((timeEntry.endCleanupAt.timestamp - timeEntry.startCleanupAt.timestamp) / 60) > 30 %}
++                            {% if ((timeEntry.cleanupDuration) / 60) > 30 %}
+                                 class="text-danger"
+                             {% endif %}
+                         >
+-                            :{{ ((timeEntry.endCleanupAt.timestamp - timeEntry.startCleanupAt.timestamp) / 60)|round }}
++                            :{{ ((timeEntry.cleanupDuration) / 60)|round }}
+                         </td>
+                         <td>
+                             <a href="{{ path('app_churro_time_entry_show', {
