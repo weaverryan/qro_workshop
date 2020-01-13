@@ -1,0 +1,20 @@
+diff --git a/src/AppBundle/Controller/ChurroTimeEntryController.php b/src/AppBundle/Controller/ChurroTimeEntryController.php
+index d5bc25d..51a4f2f 100644
+--- a/src/AppBundle/Controller/ChurroTimeEntryController.php
++++ b/src/AppBundle/Controller/ChurroTimeEntryController.php
+@@ -55,7 +55,14 @@ class ChurroTimeEntryController extends Controller
+         $form->handleRequest($request);
+ 
+         if ($form->isSubmitted() && $form->isValid()) {
+-            var_dump($form->getData());die;
++            $em = $this->getDoctrine()->getManager();
++
++            $em->persist($timeEntry);
++            $em->flush();
++
++            return $this->redirectToRoute('app_churro_time_entry_edit', [
++                'id' => $timeEntry->getId(),
++            ]);
+         }
+ 
+         return $this->render('AppBundle:ChurroTimeEntry:new.html.twig', [

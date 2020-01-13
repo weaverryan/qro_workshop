@@ -1,5 +1,5 @@
 diff --git a/src/AppBundle/Controller/ChurroTimeEntryController.php b/src/AppBundle/Controller/ChurroTimeEntryController.php
-index 4af9004..6348fdc 100644
+index 6c6188c..622804a 100644
 --- a/src/AppBundle/Controller/ChurroTimeEntryController.php
 +++ b/src/AppBundle/Controller/ChurroTimeEntryController.php
 @@ -3,6 +3,7 @@
@@ -10,27 +10,26 @@ index 4af9004..6348fdc 100644
  use AppBundle\Service\ChurroTimeEntryStatsHelper;
  use Symfony\Bundle\FrameworkBundle\Controller\Controller;
  use Symfony\Component\HttpFoundation\Response;
-@@ -56,8 +57,11 @@ class ChurroTimeEntryController extends Controller
-             throw $this->createNotFoundException('no time entry for '.$id);
-         }
+@@ -47,8 +48,10 @@ class ChurroTimeEntryController extends Controller
  
-+        $form = $this->createForm(ChurroTimeEntryForm::class, $timeEntry);
-+
-         return $this->render('AppBundle:ChurroTimeEntry:edit.html.twig', [
--            'timeEntry' => $timeEntry
-+            'timeEntry' => $timeEntry,
+     public function newAction()
+     {
+-        return $this->render('AppBundle:ChurroTimeEntry:new.html.twig', [
++        $form = $this->createForm(ChurroTimeEntryForm::class);
+ 
++        return $this->render('AppBundle:ChurroTimeEntry:new.html.twig', [
 +            'form' => $form->createView(),
          ]);
      }
  }
-diff --git a/src/AppBundle/Resources/views/ChurroTimeEntry/edit.html.twig b/src/AppBundle/Resources/views/ChurroTimeEntry/edit.html.twig
-index 91dce72..7b3225c 100644
---- a/src/AppBundle/Resources/views/ChurroTimeEntry/edit.html.twig
-+++ b/src/AppBundle/Resources/views/ChurroTimeEntry/edit.html.twig
+diff --git a/src/AppBundle/Resources/views/ChurroTimeEntry/new.html.twig b/src/AppBundle/Resources/views/ChurroTimeEntry/new.html.twig
+index d286b40..fbd8360 100644
+--- a/src/AppBundle/Resources/views/ChurroTimeEntry/new.html.twig
++++ b/src/AppBundle/Resources/views/ChurroTimeEntry/new.html.twig
 @@ -3,5 +3,11 @@
  {% block body %}
      <div class="container">
-         <h1>Editing Entry {{ timeEntry.id }}</h1>
+         <h1>New Time Entry</h1>
 +
 +        {{ form_start(form) }}
 +            {{ form_widget(form) }}

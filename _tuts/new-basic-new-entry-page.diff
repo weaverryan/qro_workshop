@@ -1,54 +1,38 @@
 diff --git a/src/AppBundle/Controller/ChurroTimeEntryController.php b/src/AppBundle/Controller/ChurroTimeEntryController.php
-index ea445ff..4af9004 100644
+index ea445ff..6c6188c 100644
 --- a/src/AppBundle/Controller/ChurroTimeEntryController.php
 +++ b/src/AppBundle/Controller/ChurroTimeEntryController.php
-@@ -44,4 +44,20 @@ class ChurroTimeEntryController extends Controller
+@@ -44,4 +44,11 @@ class ChurroTimeEntryController extends Controller
              'timeEntry' => $timeEntry
          ]);
      }
 +
-+    public function editAction($id)
++    public function newAction()
 +    {
-+        /** @var ChurroTimeEntry $timeEntry */
-+        $timeEntry = $this->getDoctrine()
-+            ->getRepository(ChurroTimeEntry::class)
-+            ->find($id);
++        return $this->render('AppBundle:ChurroTimeEntry:new.html.twig', [
 +
-+        if (!$timeEntry) {
-+            throw $this->createNotFoundException('no time entry for '.$id);
-+        }
-+
-+        return $this->render('AppBundle:ChurroTimeEntry:edit.html.twig', [
-+            'timeEntry' => $timeEntry
 +        ]);
 +    }
  }
 diff --git a/src/AppBundle/Resources/config/routing.yml b/src/AppBundle/Resources/config/routing.yml
-index d3be246..86857bd 100644
+index d3be246..1492e82 100644
 --- a/src/AppBundle/Resources/config/routing.yml
 +++ b/src/AppBundle/Resources/config/routing.yml
-@@ -12,3 +12,8 @@ app_churro_time_entry_show:
+@@ -8,7 +8,12 @@ app_churro_time_entry_list:
+     defaults:
+         _controller: 'AppBundle:ChurroTimeEntry:list'
+ 
++app_churro_time_entry_new:
++    path: /time-entries/new
++    defaults:
++        _controller: 'AppBundle:ChurroTimeEntry:new'
++
+ app_churro_time_entry_show:
      path: /time-entries/{id}
      defaults:
-         _controller: 'AppBundle:ChurroTimeEntry:show'
-+
-+app_churro_time_entry_edit:
-+    path: /time-entries/{id}/edit
-+    defaults:
-+        _controller: 'AppBundle:ChurroTimeEntry:edit'
-diff --git a/src/AppBundle/Resources/views/ChurroTimeEntry/edit.html.twig b/src/AppBundle/Resources/views/ChurroTimeEntry/edit.html.twig
-new file mode 100644
-index 0000000..91dce72
---- /dev/null
-+++ b/src/AppBundle/Resources/views/ChurroTimeEntry/edit.html.twig
-@@ -0,0 +1,7 @@
-+{% extends 'AppBundle::base.html.twig' %}
-+
-+{% block body %}
-+    <div class="container">
-+        <h1>Editing Entry {{ timeEntry.id }}</h1>
-+    </div>
-+{% endblock %}
+-        _controller: 'AppBundle:ChurroTimeEntry:show'
++        _controller: 'AppBundle:ChurroTimeEntry:show'
+\ No newline at end of file
 diff --git a/src/AppBundle/Resources/views/ChurroTimeEntry/list.html.twig b/src/AppBundle/Resources/views/ChurroTimeEntry/list.html.twig
 index 404a8ef..9fd9254 100644
 --- a/src/AppBundle/Resources/views/ChurroTimeEntry/list.html.twig
@@ -66,3 +50,16 @@ index 404a8ef..9fd9254 100644
                          </td>
                      </tr>
                  {% endfor %}
+diff --git a/src/AppBundle/Resources/views/ChurroTimeEntry/new.html.twig b/src/AppBundle/Resources/views/ChurroTimeEntry/new.html.twig
+new file mode 100644
+index 0000000..d286b40
+--- /dev/null
++++ b/src/AppBundle/Resources/views/ChurroTimeEntry/new.html.twig
+@@ -0,0 +1,7 @@
++{% extends 'AppBundle::base.html.twig' %}
++
++{% block body %}
++    <div class="container">
++        <h1>New Time Entry</h1>
++    </div>
++{% endblock %}

@@ -1,0 +1,15 @@
+diff --git a/src/AppBundle/Controller/ChurroTimeEntryController.php b/src/AppBundle/Controller/ChurroTimeEntryController.php
+index 622804a..4135c19 100644
+--- a/src/AppBundle/Controller/ChurroTimeEntryController.php
++++ b/src/AppBundle/Controller/ChurroTimeEntryController.php
+@@ -48,7 +48,9 @@ class ChurroTimeEntryController extends Controller
+ 
+     public function newAction()
+     {
+-        $form = $this->createForm(ChurroTimeEntryForm::class);
++        $form = $this->createForm(ChurroTimeEntryForm::class, null, [
++            'csrf_protection' => false,
++        ]);
+ 
+         return $this->render('AppBundle:ChurroTimeEntry:new.html.twig', [
+             'form' => $form->createView(),

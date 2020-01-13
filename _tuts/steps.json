@@ -386,25 +386,55 @@
             "description": null
         },
         {
-            "id": "edit-basic-edit-page",
-            "name": "Edit: basic edit page",
+            "id": "new-basic-new-entry-page",
+            "name": "New: basic new entry page",
             "description": null
         },
         {
-            "id": "edit-bootstrap-form-class",
-            "name": "Edit: Bootstrap form class",
+            "id": "new-bootstrap-form-class",
+            "name": "New: Bootstrap form class",
             "description": null
         },
         {
-            "id": "edit-add-basic-fields-to-form",
-            "name": "Edit: add basic fields to form",
+            "id": "new-add-basic-fields-to-form",
+            "name": "New: add basic fields to form",
             "description": null
         },
         {
-            "id": "edit-create-render-form",
-            "name": "Edit: create & render form",
+            "id": "new-create-render-form",
+            "name": "New: create & render form",
+            "description": null
+        },
+        {
+            "id": "new-bootstrap-form-theme",
+            "name": "New: bootstrap form theme",
+            "description": null
+        },
+        {
+            "id": "new-disable-csrf-for-me-only",
+            "name": "New: disable csrf for me only",
+            "description": null
+        },
+        {
+            "id": "form-add-date-types",
+            "name": "Form: add date types",
+            "description": null
+        },
+        {
+            "id": "edit-handle-dump-form-data",
+            "name": "Edit: handle & dump form data",
+            "description": null
+        },
+        {
+            "id": "edit-finish-form-submit",
+            "name": "Edit: finish form submit",
+            "description": null
+        },
+        {
+            "id": "form-add-choicetype",
+            "name": "Form: add ChoiceType",
             "description": null
         }
     ],
-    "sha": "29f16ed03295f2d562e6d299519b5e727aadb6ef"
+    "sha": "5bc1714190d36f03ecb1da334412921d10b5964e"
 }
