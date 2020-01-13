@@ -416,13 +416,13 @@
             "description": null
         },
         {
-            "id": "form-add-date-types",
-            "name": "Form: add date types",
+            "id": "edit-handle-dump-form-data",
+            "name": "Edit: handle & dump form data",
             "description": null
         },
         {
-            "id": "edit-handle-dump-form-data",
-            "name": "Edit: handle & dump form data",
+            "id": "form-add-date-types",
+            "name": "Form: add date types",
             "description": null
         },
         {
