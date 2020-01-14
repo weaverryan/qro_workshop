@@ -14,6 +14,11 @@ class BakerTest extends TestCase
         $baker->setLastName('Weaver');
 
         $this->assertSame('Ryan W.', $baker->getAbbreviatedName());
+
+        $baker = new Baker();
+        $baker->setFirstName('Ryan');
+
+        $this->assertSame('Ryan', $baker->getAbbreviatedName());
     }
 }
 
