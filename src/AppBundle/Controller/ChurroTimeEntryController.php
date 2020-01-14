@@ -19,6 +19,10 @@ class ChurroTimeEntryController extends Controller
             ->getQuery()
             ->getResult();
 
+        $this->container
+            ->get('logger')
+            ->info(sprintf('Printing %d time entries', count($timeEntries)));
+
         $bestTypeData = $this->getMostEfficientTypeData($timeEntries);
 
         return $this->render('AppBundle:ChurroTimeEntry:list.html.twig', [
