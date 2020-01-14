@@ -48,7 +48,9 @@ class ChurroTimeEntryController extends Controller
 
     public function newAction()
     {
-        $form = $this->createForm(ChurroTimeEntryForm::class);
+        $form = $this->createForm(ChurroTimeEntryForm::class, null, [
+            'csrf_protection' => false,
+        ]);
 
         return $this->render('AppBundle:ChurroTimeEntry:new.html.twig', [
             'form' => $form->createView(),
