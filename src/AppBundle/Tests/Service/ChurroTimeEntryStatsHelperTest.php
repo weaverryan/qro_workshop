@@ -41,5 +41,7 @@ class ChurroTimeEntryStatsHelperTest extends TestCase
         $helper = new ChurroTimeEntryStatsHelper($registry, $logger);
         $stats = $helper->getMostEfficientTypeData();
         $this->assertInstanceOf(ChurroTypeStats::class, $stats);
+        $this->assertSame(15, $stats->getAverageQuantityMade());
+        $this->assertSame('chocolate', $stats->getType());
     }
 }
