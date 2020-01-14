@@ -74,16 +74,17 @@ class ChurroTimeEntryStatsHelper
     {
         $useFilter = true;
         $today = new \DateTime('now');
+
         if ($today->format('n') <= 6) {
             // don't filter if today is January-June
+            return false;
+        }
+
+        if (($today->format('j') === 30 || $today->format('j') === 31)
+            && $today->format('n') !== 10) {
+            // don't use filter if today is 30th/31st of July-December
+            // except for October - always use the filter in October
             $useFilter = false;
-        } else {
-            if (($today->format('j') === 30 || $today->format('j') === 31)
-                && $today->format('n') !== 10) {
-                // don't use filter if today is 30th/31st of July-December
-                // except for October - always use the filter in October
-                $useFilter = false;
-            }
         }
 
         return $useFilter;
