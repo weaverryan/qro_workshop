@@ -8,8 +8,7 @@ class ChurroTimeEntryRepository extends EntityRepository
 {
     public function findAllDuringLastWeekOrderedNewestFirst()
     {
-        $timeEntries = $this->doctrine
-            ->getRepository(ChurroTimeEntry::class)
+        return $this
             ->createQueryBuilder('churro_time_entry')
             ->where('churro_time_entry.startCookingAt > :date')
             ->setParameter('date', new \DateTime('-1 week'))
