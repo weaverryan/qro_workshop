@@ -25,6 +25,7 @@
                     <th>quantity made</th>
                     <th>cook time</th>
                     <th>cleanup time</th>
+                    <th>actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -42,6 +43,13 @@
                             {% endif %}
                         >
                             :{{ ((timeEntry.endCleanupAt.timestamp - timeEntry.startCleanupAt.timestamp) / 60)|round }}
+                        </td>
+                        <td>
+                            <a href="{{ path('app_churro_time_entry_show', {
+                                id: timeEntry.id
+                            }) }}">
+                                view
+                            </a>
                         </td>
                     </tr>
                 {% endfor %}
