@@ -15,8 +15,7 @@ class DefaultController extends Controller
         $bestTypeData = $statsHelper->getMostEfficientTypeData();
 
         return $this->render('AppBundle:Default:homepage.html.twig', array(
-            'bestType' => $bestTypeData['type'],
-            'avg' => $bestTypeData['average'],
+            'bestTypeStats' => $bestTypeData,
         ));
     }
 }

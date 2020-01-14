@@ -25,8 +25,7 @@ class ChurroTimeEntryController extends Controller
 
         return $this->render('AppBundle:ChurroTimeEntry:list.html.twig', [
             'timeEntries' => $timeEntries,
-            'bestType' => $bestTypeData['type'],
-            'avg' => $bestTypeData['average'],
+            'bestTypeStats' => $bestTypeData,
         ]);
     }
 
