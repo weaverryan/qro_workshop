@@ -7,18 +7,24 @@ use PHPUnit\Framework\TestCase;
 
 class BakerTest extends TestCase
 {
-    public function testGetAbbreviatedName()
+    /**
+     * @dataProvider getAbbreviatedNameTests
+     */
+    public function testGetAbbreviatedName($firstName, $lastName, $expected)
     {
         $baker = new Baker();
-        $baker->setFirstName('Ryan');
-        $baker->setLastName('Weaver');
+        $baker->setFirstName($firstName);
+        $baker->setLastName($lastName);
 
-        $this->assertSame('Ryan W.', $baker->getAbbreviatedName());
+        $this->assertSame($expected, $baker->getAbbreviatedName());
+    }
 
-        $baker = new Baker();
-        $baker->setFirstName('Ryan');
-
-        $this->assertSame('Ryan', $baker->getAbbreviatedName());
+    public function getAbbreviatedNameTests()
+    {
+        return [
+            ['Ryan', 'Weaver', 'Ryan W.'],
+            ['Ryan', null, 'Ryan'],
+        ];
     }
 }
 
