@@ -44,6 +44,13 @@ class ChurroTimeEntryController extends Controller
         ]);
     }
 
+    /**
+     * Determines which "type" cooks the most churros on average
+     * and returns that inside an array with "type" and "average" keys.
+     *
+     * @param ChurroTimeEntry[] $timeEntries
+     * @return array
+     */
     private function getMostEfficientTypeData(array $timeEntries)
     {
         $useFilter = true;
