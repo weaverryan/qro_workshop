@@ -7,3 +7,8 @@ app_churro_time_entry_list:
     path: /time-entries
     defaults:
         _controller: 'AppBundle:ChurroTimeEntry:list'
+
+app_churro_time_entry_show:
+    path: /time-entries/{id}
+    defaults:
+        _controller: 'AppBundle:ChurroTimeEntry:show'

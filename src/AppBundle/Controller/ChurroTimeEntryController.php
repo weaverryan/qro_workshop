@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\ChurroTimeEntry;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 
 class ChurroTimeEntryController extends Controller
 {
@@ -70,5 +71,10 @@ class ChurroTimeEntryController extends Controller
             'bestType' => $bestType,
             'avg' => $avg,
         ]);
+    }
+
+    public function showAction($id)
+    {
+        return new Response('Time entry '.$id);
     }
 }
