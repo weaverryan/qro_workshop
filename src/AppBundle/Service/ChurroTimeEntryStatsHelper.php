@@ -4,14 +4,14 @@ namespace AppBundle\Service;
 
 use AppBundle\Entity\ChurroTimeEntry;
 use Doctrine\Bundle\DoctrineBundle\Registry;
-use Symfony\Bridge\Monolog\Logger;
+use Psr\Log\LoggerInterface;
 
 class ChurroTimeEntryStatsHelper
 {
     private $doctrine;
     private $logger;
 
-    public function __construct(Registry $doctrine, Logger $logger)
+    public function __construct(Registry $doctrine, LoggerInterface $logger)
     {
         $this->doctrine = $doctrine;
         $this->logger = $logger;
