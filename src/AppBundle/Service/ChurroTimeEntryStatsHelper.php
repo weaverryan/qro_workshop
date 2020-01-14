@@ -42,12 +42,12 @@ class ChurroTimeEntryStatsHelper
                 continue;
             }
 
-            if (isset($types[$timeEntry->getType()])) {
-                $types[$timeEntry->getType()][] = $timeEntry->getQuantityMade();
-            } else {
+            // initialize key if necessary
+            if (!isset($types[$timeEntry->getType()])) {
                 $types[$timeEntry->getType()] = [];
-                $types[$timeEntry->getType()][] = $timeEntry->getQuantityMade();
             }
+
+            $types[$timeEntry->getType()][] = $timeEntry->getQuantityMade();
         }
 
         $bestType = null;
