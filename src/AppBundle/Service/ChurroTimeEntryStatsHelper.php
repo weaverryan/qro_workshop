@@ -35,17 +35,17 @@ class ChurroTimeEntryStatsHelper
         $types = [];
         foreach ($timeEntries as $timeEntry) {
             if ($useFilter && $timeEntry->getStartCookingAt()->format('H') < 6) {
+                continue;
+            }
+
+            if ($useFilter && $timeEntry->getStartCookingAt()->format('H') >= 22) {
                 // skip
             } else {
-                if ($useFilter && $timeEntry->getStartCookingAt()->format('H') >= 22) {
-                    // skip
+                if (isset($types[$timeEntry->getType()])) {
+                    $types[$timeEntry->getType()][] = $timeEntry->getQuantityMade();
                 } else {
-                    if (isset($types[$timeEntry->getType()])) {
-                        $types[$timeEntry->getType()][] = $timeEntry->getQuantityMade();
-                    } else {
-                        $types[$timeEntry->getType()] = [];
-                        $types[$timeEntry->getType()][] = $timeEntry->getQuantityMade();
-                    }
+                    $types[$timeEntry->getType()] = [];
+                    $types[$timeEntry->getType()][] = $timeEntry->getQuantityMade();
                 }
             }
         }
