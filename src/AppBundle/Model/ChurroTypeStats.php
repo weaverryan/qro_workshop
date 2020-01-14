@@ -8,23 +8,19 @@ class ChurroTypeStats
 
     private $averageQuantityMade;
 
+    public function __construct($type, $averageQuantityMade)
+    {
+        $this->type = $type;
+        $this->averageQuantityMade = $averageQuantityMade;
+    }
+
     public function getType()
     {
         return $this->type;
     }
 
-    public function setType($type)
-    {
-        $this->type = $type;
-    }
-
     public function getAverageQuantityMade()
     {
         return $this->averageQuantityMade;
-    }
-
-    public function setAverageQuantityMade($averageQuantityMade)
-    {
-        $this->averageQuantityMade = $averageQuantityMade;
     }
 }
