@@ -9,7 +9,6 @@ use Symfony\Component\Validator\Context\ExecutionContextInterface;
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ChurroTimeEntryRepository")
  * @ORM\Table()
- * @Assert\Callback("validateDates")
  */
 class ChurroTimeEntry
 {
@@ -34,19 +33,16 @@ class ChurroTimeEntry
 
     /**
      * @ORM\Column(type="datetime")
-     * @Assert\NotBlank()
      */
     private $endCookingAt;
 
     /**
      * @ORM\Column(type="datetime")
-     * @Assert\NotBlank()
      */
     private $startCleanupAt;
 
     /**
      * @ORM\Column(type="datetime")
-     * @Assert\NotBlank()
      */
     private $endCleanupAt;
 
@@ -197,14 +193,5 @@ class ChurroTimeEntry
     public function didCleanupTakeTooLong()
     {
         return ($this->getCleanupDuration() / 60) > 30;
-    }
-
-    public function validateDates(ExecutionContextInterface $executionContext)
-    {
-        if ($this->getStartCookingAt() >= $this->getEndCookingAt()) {
-            $executionContext->buildViolation('Start must be before end')
-                ->atPath('startCookingAt')
-                ->addViolation();
-        }
     }
 }
