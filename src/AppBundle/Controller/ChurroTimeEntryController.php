@@ -57,7 +57,13 @@ class ChurroTimeEntryController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            var_dump($form['cookingDuration']->getData());die;
+            $entry->setEndCookingAt(
+                (clone $entry->getStartCookingAt())->modify(sprintf('+%s minutes', $form['cookingDuration']->getData()))
+            );
+            $entry->setStartCleanupAt(clone $entry->getEndCookingAt());
+            $entry->setEndCleanupAt(
+                (clone $entry->getStartCleanupAt())->modify(sprintf('+%s minutes', $form['cleanupDuration']->getData()))
+            );
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($entry);
