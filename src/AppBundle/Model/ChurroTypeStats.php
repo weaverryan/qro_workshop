@@ -6,7 +6,7 @@ class ChurroTypeStats
 {
     private $type;
 
-    private $average;
+    private $averageQuantityMade;
 
     public function getType()
     {
@@ -18,13 +18,13 @@ class ChurroTypeStats
         $this->type = $type;
     }
 
-    public function getAverage()
+    public function getAverageQuantityMade()
     {
-        return $this->average;
+        return $this->averageQuantityMade;
     }
 
-    public function setAverage($average)
+    public function setAverageQuantityMade($averageQuantityMade)
     {
-        $this->average = $average;
+        $this->averageQuantityMade = $averageQuantityMade;
     }
 }

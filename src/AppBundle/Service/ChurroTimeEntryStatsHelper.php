@@ -81,7 +81,7 @@ class ChurroTimeEntryStatsHelper
 
         $typeStats=  new ChurroTypeStats();
         $typeStats->setType($bestType);
-        $typeStats->setAverage($avg);
+        $typeStats->setAverageQuantityMade($avg);
 
         return $typeStats;
     }
