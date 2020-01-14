@@ -2,10 +2,14 @@
 
 namespace AppBundle\Repository;
 
+use AppBundle\Entity\ChurroTimeEntry;
 use Doctrine\ORM\EntityRepository;
 
 class ChurroTimeEntryRepository extends EntityRepository
 {
+    /**
+     * @return ChurroTimeEntry[]
+     */
     public function findAllDuringLastWeekOrderedNewestFirst()
     {
         return $this
