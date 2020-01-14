@@ -51,6 +51,7 @@ class ChurroTimeEntry
     /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank()
+     * @Assert\GreaterThanOrEqual(0)
      */
     private $quantityMade;
 
