@@ -3,12 +3,13 @@
 namespace AppBundle\Service;
 
 use AppBundle\Entity\ChurroTimeEntry;
+use Doctrine\Bundle\DoctrineBundle\Registry;
 
 class ChurroTimeEntryStatsHelper
 {
     private $doctrine;
 
-    public function __construct($doctrine)
+    public function __construct(Registry $doctrine)
     {
         $this->doctrine = $doctrine;
     }
