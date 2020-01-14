@@ -6,6 +6,13 @@ use AppBundle\Entity\ChurroTimeEntry;
 
 class ChurroTimeEntryStatsHelper
 {
+    private $container;
+
+    public function __construct($container)
+    {
+        $this->container = $container;
+    }
+
     /**
      * Determines which "type" cooks the most churros on average
      * and returns that inside an array with "type" and "average" keys.
