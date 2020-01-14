@@ -3,6 +3,7 @@
 namespace AppBundle\Tests\Service;
 
 use AppBundle\Model\ChurroTypeStats;
+use AppBundle\Repository\ChurroTimeEntryRepository;
 use AppBundle\Service\ChurroTimeEntryStatsHelper;
 use Doctrine\Bundle\DoctrineBundle\Registry;
 use PHPUnit\Framework\TestCase;
@@ -14,6 +15,11 @@ class ChurroTimeEntryStatsHelperTest extends TestCase
     {
         $registry = $this->createMock(Registry::class);
         $logger = $this->createMock(LoggerInterface::class);
+
+        $repository = $this->createMock(ChurroTimeEntryRepository::class);
+        $registry->expects($this->once())
+            ->method('getRepository')
+            ->willReturn($repository);
 
         $helper = new ChurroTimeEntryStatsHelper($registry, $logger);
         $stats = $helper->getMostEfficientTypeData();
