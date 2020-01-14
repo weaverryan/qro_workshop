@@ -32,7 +32,12 @@ class ChurroTimeEntryForm extends AbstractType
                 'widget' => 'single_text'
             ])
             ->add('cookingDuration', IntegerType::class, [
+                'mapped' => false,
                 'label' => 'Cooking time (minutes)',
+            ])
+            ->add('cleanupDuration', IntegerType::class, [
+                'mapped' => false,
+                'label' => 'Cleanup time (minutes)',
             ])
         ;
     }
