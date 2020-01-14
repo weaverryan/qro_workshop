@@ -56,18 +56,6 @@ class ChurroTimeEntryController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $data = $form->getData();
-            var_dump($data);die;
-
-            $entry = new ChurroTimeEntry();
-            $entry->setType($data['type']);
-            $entry->setQuantityMade($data['quantityMade']);
-            $entry->setBakedBy($data['bakedBy']);
-            $entry->setStartCookingAt($data['startCookingAt']);
-            $entry->setEndCookingAt($data['endCookingAt']);
-            $entry->setStartCleanupAt($data['startCleanupAt']);
-            $entry->setEndCleanupAt($data['endCleanupAt']);
-
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($entry);
             $entityManager->flush();
