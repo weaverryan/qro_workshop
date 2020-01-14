@@ -130,6 +130,9 @@ class ChurroTimeEntry
         $this->quantityMade = $quantityMade;
     }
 
+    /**
+     * @return Baker
+     */
     public function getBakedBy()
     {
         return $this->bakedBy;
@@ -142,19 +145,19 @@ class ChurroTimeEntry
 
     public function getBakerUsername()
     {
-        if (!$this->bakedBy) {
+        if (!$this->getBakedBy()) {
             throw new \Exception('This ChurroTimeEntry does not have a Baker!');
         }
 
-        return $this->bakedBy->getUsername();
+        return $this->getBakedBy()->getUsername();
     }
 
     public function getBakerDisplayName()
     {
-        if (!$this->bakedBy) {
+        if (!$this->getBakedBy()) {
             throw new \Exception('This ChurroTimeEntry does not have a Baker!');
         }
 
-        return $this->bakedBy->getAbbreviatedName();
+        return $this->getBakedBy()->getAbbreviatedName();
     }
 }
