@@ -27,12 +27,7 @@ class ChurroTimeEntryStatsHelper
     {
         $timeEntries = $this->doctrine
             ->getRepository(ChurroTimeEntry::class)
-            ->createQueryBuilder('churro_time_entry')
-            ->where('churro_time_entry.startCookingAt > :date')
-            ->setParameter('date', new \DateTime('-1 week'))
-            ->orderBy('churro_time_entry.startCookingAt', 'DESC')
-            ->getQuery()
-            ->getResult();
+            ->findAllDuringLastWeekOrderedNewestFirst();
 
         $useFilter = true;
         $today = new \DateTime('now');
