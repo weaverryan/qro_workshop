@@ -6,6 +6,7 @@ use AppBundle\Entity\ChurroTimeEntry;
 use AppBundle\Form\ChurroTimeEntryForm;
 use AppBundle\Service\ChurroTimeEntryStatsHelper;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class ChurroTimeEntryController extends Controller
@@ -46,11 +47,16 @@ class ChurroTimeEntryController extends Controller
         ]);
     }
 
-    public function newAction()
+    public function newAction(Request $request)
     {
         $form = $this->createForm(ChurroTimeEntryForm::class, null, [
             'csrf_protection' => false,
         ]);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            var_dump($form->getData());die;
+        }
 
         return $this->render('AppBundle:ChurroTimeEntry:new.html.twig', [
             'form' => $form->createView(),
