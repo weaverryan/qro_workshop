@@ -75,6 +75,7 @@ class ChurroTimeEntryController extends Controller
 
     public function showAction($id)
     {
+        /** @var ChurroTimeEntry $timeEntry */
         $timeEntry = $this->getDoctrine()
             ->getRepository(ChurroTimeEntry::class)
             ->find($id);
