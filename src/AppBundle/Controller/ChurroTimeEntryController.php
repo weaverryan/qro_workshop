@@ -19,6 +19,33 @@ class ChurroTimeEntryController extends Controller
             ->getQuery()
             ->getResult();
 
+        $bestTypeData = $this->getMostEfficientTypeData($timeEntries);
+
+        return $this->render('AppBundle:ChurroTimeEntry:list.html.twig', [
+            'timeEntries' => $timeEntries,
+            'bestType' => $bestTypeData['type'],
+            'avg' => $bestTypeData['average'],
+        ]);
+    }
+
+    public function showAction($id)
+    {
+        /** @var ChurroTimeEntry $timeEntry */
+        $timeEntry = $this->getDoctrine()
+            ->getRepository(ChurroTimeEntry::class)
+            ->find($id);
+
+        if (!$timeEntry) {
+            throw $this->createNotFoundException('no time entry for '.$id);
+        }
+
+        return $this->render('AppBundle:ChurroTimeEntry:show.html.twig', [
+            'timeEntry' => $timeEntry
+        ]);
+    }
+
+    private function getMostEfficientTypeData(array $timeEntries)
+    {
         $useFilter = true;
         $today = new \DateTime('now');
         if ($today->format('n') <= 6) {
@@ -66,26 +93,6 @@ class ChurroTimeEntryController extends Controller
             }
         }
 
-        return $this->render('AppBundle:ChurroTimeEntry:list.html.twig', [
-            'timeEntries' => $timeEntries,
-            'bestType' => $bestType,
-            'avg' => $avg,
-        ]);
-    }
-
-    public function showAction($id)
-    {
-        /** @var ChurroTimeEntry $timeEntry */
-        $timeEntry = $this->getDoctrine()
-            ->getRepository(ChurroTimeEntry::class)
-            ->find($id);
-
-        if (!$timeEntry) {
-            throw $this->createNotFoundException('no time entry for '.$id);
-        }
-
-        return $this->render('AppBundle:ChurroTimeEntry:show.html.twig', [
-            'timeEntry' => $timeEntry
-        ]);
+        return ['type' => $bestType, 'average' => $avg];
     }
 }
