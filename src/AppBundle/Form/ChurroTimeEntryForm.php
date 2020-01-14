@@ -9,5 +9,13 @@ class ChurroTimeEntryForm extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $builder
+            ->add('type')
+            ->add('startCookingAt')
+            ->add('endCookingAt')
+            ->add('startCleanupAt')
+            ->add('endCleanupAt')
+            ->add('quantityMade')
+        ;
     }
 }
