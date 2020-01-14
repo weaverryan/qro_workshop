@@ -178,6 +178,9 @@ class ChurroTimeEntry
     }
 
     /**
+     * To help improve cleanup times, we're identifying
+     * any cleanup times longer than 30 minutes as "too long".
+     *
      * @return bool
      */
     public function didCleanupTakeTooLong()
