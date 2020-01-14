@@ -161,6 +161,9 @@ class ChurroTimeEntry
         return $this->getBakedBy()->getAbbreviatedName();
     }
 
+    /**
+     * @return int The time in seconds
+     */
     public function getCookingDuration()
     {
         return $this->getEndCookingAt()->getTimestamp() - $this->getStartCookingAt()->getTimestamp();
