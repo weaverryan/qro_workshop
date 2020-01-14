@@ -2,6 +2,8 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Entity\Baker;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
@@ -27,6 +29,9 @@ class ChurroTimeEntryForm extends AbstractType
             ->add('startCleanupAt', DateTimeType::class)
             ->add('endCleanupAt', DateTimeType::class)
             ->add('quantityMade', IntegerType::class)
+            ->add('bakedBy', EntityType::class, [
+                'class' => Baker::class
+            ])
         ;
     }
 }
