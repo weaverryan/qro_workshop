@@ -3,11 +3,16 @@
 {% block body %}
     <main role="main" class="container">
         <div class="row">
-            <div class="col-sm-8">
+            <div class="col-sm-7">
                 <h1>Churro Cooking Time Entries</h1>
             </div>
             <div class="col-sm-4">
                 {{ include('@App/ChurroTimeEntry/_bestChurroTypeBox.html.twig') }}
+            </div>
+            <div class="col-sm-1">
+                <a href="{{ path('app_churro_time_entry_new') }}" class="btn btn-primary">
+                    Create
+                </a>
             </div>
         </div>
 

@@ -44,4 +44,11 @@ class ChurroTimeEntryController extends Controller
             'timeEntry' => $timeEntry
         ]);
     }
+
+    public function newAction()
+    {
+        return $this->render('AppBundle:ChurroTimeEntry:new.html.twig', [
+
+        ]);
+    }
 }
