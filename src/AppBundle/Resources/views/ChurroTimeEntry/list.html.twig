@@ -32,7 +32,7 @@
                             :{{ ((timeEntry.cookingDuration) / 60)|round }}
                         </td>
                         <td
-                            {% if ((timeEntry.cleanupDuration) / 60) > 30 %}
+                            {% if timeEntry.didCleanupTakeTooLong %}
                                 class="text-danger"
                             {% endif %}
                         >

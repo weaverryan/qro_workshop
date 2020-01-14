@@ -176,4 +176,12 @@ class ChurroTimeEntry
     {
         return $this->getEndCleanupAt()->getTimestamp() - $this->getStartCleanupAt()->getTimestamp();
     }
+
+    /**
+     * @return bool
+     */
+    public function didCleanupTakeTooLong()
+    {
+        return ($this->getCleanupDuration() / 60) > 30;
+    }
 }
