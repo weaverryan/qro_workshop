@@ -139,4 +139,9 @@ class ChurroTimeEntry
     {
         $this->bakedBy = $bakedBy;
     }
+
+    public function getBakerUsername()
+    {
+        return $this->bakedBy->getUsername();
+    }
 }

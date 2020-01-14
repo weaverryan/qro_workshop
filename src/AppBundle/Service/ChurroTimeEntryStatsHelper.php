@@ -34,7 +34,7 @@ class ChurroTimeEntryStatsHelper
 
         $types = [];
         foreach ($timeEntries as $timeEntry) {
-            if ($timeEntry->getBakedBy()->getUsername() === 'jwage') {
+            if ($timeEntry->getBakerUsername() === 'jwage') {
                 // jwage doesn't count
                 continue;
             }
