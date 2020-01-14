@@ -30,7 +30,9 @@ class ChurroTimeEntryForm extends AbstractType
             ->add('endCleanupAt', DateTimeType::class)
             ->add('quantityMade', IntegerType::class)
             ->add('bakedBy', EntityType::class, [
-                'class' => Baker::class
+                'class' => Baker::class,
+                'choice_label' => 'abbreviatedName',
+                'placeholder' => 'Choose a baker'
             ])
         ;
     }
