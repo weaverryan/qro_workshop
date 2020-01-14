@@ -10,7 +10,7 @@ class ChurroTimeEntryController extends Controller
 {
     public function listAction()
     {
-        $timeEntries = $this->getDoctrine()
+        $timeEntries = $this->container->get('doctrine')
             ->getRepository(ChurroTimeEntry::class)
             ->createQueryBuilder('churro_time_entry')
             ->where('churro_time_entry.startCookingAt > :date')
