@@ -197,6 +197,10 @@ class ChurroTimeEntry
 
     public function setCookingAndCleanupDuration($cookingMinutes, $cleanupMinutes)
     {
+        if (!$this->getStartCookingAt()) {
+            throw new \Exception('Cannot set duration until startCookingAt is set!');
+        }
+
         $this->setEndCookingAt(
             (clone $this->getStartCookingAt())->modify(sprintf('+%s minutes', $cookingMinutes))
         );
