@@ -55,10 +55,13 @@ class ChurroTimeEntryStatsHelper
         foreach ($types as $type => $data) {
             $thisAverage = $this->calculateAverage($data);
 
-            if ($thisAverage > $bestTypeAverage) {
-                $bestTypeAverage = $thisAverage;
-                $bestType = $type;
+            if ($thisAverage <= $bestTypeAverage) {
+                continue;
             }
+
+            // new best average found!
+            $bestTypeAverage = $thisAverage;
+            $bestType = $type;
         }
 
         $this->logger->info('Most efficient type is '.$bestType);
