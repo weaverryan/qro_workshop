@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\ChurroTimeEntry;
+use AppBundle\Service\ChurroTimeEntryStatsHelper;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -23,7 +24,8 @@ class ChurroTimeEntryController extends Controller
             ->get('logger')
             ->info(sprintf('Printing %d time entries', count($timeEntries)));
 
-        $bestTypeData = $this->getMostEfficientTypeData($timeEntries);
+        $statsHelper = new ChurroTimeEntryStatsHelper();
+        $bestTypeData = $statsHelper->getMostEfficientTypeData($timeEntries);
 
         return $this->render('AppBundle:ChurroTimeEntry:list.html.twig', [
             'timeEntries' => $timeEntries,
