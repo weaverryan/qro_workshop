@@ -18,13 +18,7 @@ class DummyDataFixtures implements FixtureInterface
     {
         $this->createBakers($manager);
 
-        $types = [
-            'plain',
-            'guava',
-            'chocolate',
-            'dulce de leche',
-            'vanilla'
-        ];
+        $types = ChurroTimeEntry::VALID_CHURRO_TYPES;
 
         for ($i = 0; $i < 20; $i++) {
             $startCookingTime = \DateTime::createFromFormat(

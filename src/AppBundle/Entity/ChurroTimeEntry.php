@@ -12,6 +12,14 @@ use Symfony\Component\Validator\Context\ExecutionContextInterface;
  */
 class ChurroTimeEntry
 {
+    const VALID_CHURRO_TYPES = [
+        'plain',
+        'guava',
+        'chocolate',
+        'dulce de leche',
+        'vanilla'
+    ];
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
