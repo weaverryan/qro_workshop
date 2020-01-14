@@ -57,6 +57,8 @@ class ChurroTimeEntryController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            var_dump($form['cookingDuration']->getData());die;
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($entry);
             $entityManager->flush();
