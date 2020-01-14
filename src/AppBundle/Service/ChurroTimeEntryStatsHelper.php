@@ -15,6 +15,15 @@ class ChurroTimeEntryStatsHelper
      */
     public function getMostEfficientTypeData(array $timeEntries)
     {
+        $timeEntries = $this->container->get('doctrine')
+            ->getRepository(ChurroTimeEntry::class)
+            ->createQueryBuilder('churro_time_entry')
+            ->where('churro_time_entry.startCookingAt > :date')
+            ->setParameter('date', new \DateTime('-1 week'))
+            ->orderBy('churro_time_entry.startCookingAt', 'DESC')
+            ->getQuery()
+            ->getResult();
+
         $useFilter = true;
         $today = new \DateTime('now');
         if ($today->format('n') <= 6) {
