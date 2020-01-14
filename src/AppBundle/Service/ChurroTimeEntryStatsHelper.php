@@ -70,6 +70,11 @@ class ChurroTimeEntryStatsHelper
         return new ChurroTypeStats($bestType, $avg);
     }
 
+    /**
+     * Complex business logic given to us about when we should
+     * filter early and late hour reports. This is because of XX
+     * reason and was told to us by YY person.
+     */
     private function shouldUseTimeFilter()
     {
         $today = new \DateTime('now');
