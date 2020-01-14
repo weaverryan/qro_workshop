@@ -79,6 +79,10 @@ class ChurroTimeEntryController extends Controller
             ->getRepository(ChurroTimeEntry::class)
             ->find($id);
 
+        if (!$timeEntry) {
+            throw $this->createNotFoundException('no time entry for '.$id);
+        }
+
         return new Response('Time entry quantity '.$timeEntry->getQuantityMade());
     }
 }
