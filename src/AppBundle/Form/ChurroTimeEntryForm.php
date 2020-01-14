@@ -22,14 +22,14 @@ class ChurroTimeEntryForm extends AbstractType
                 ],
                 'placeholder' => 'Choose a type'
             ])
-            ->add('startCookingAt', DateTimeType::class, [
-                'widget' => 'single_text'
-            ])
             ->add('quantityMade', IntegerType::class)
             ->add('bakedBy', EntityType::class, [
                 'class' => Baker::class,
                 'choice_label' => 'abbreviatedName',
                 'placeholder' => 'Choose a baker'
+            ])
+            ->add('startCookingAt', DateTimeType::class, [
+                'widget' => 'single_text'
             ])
         ;
     }
