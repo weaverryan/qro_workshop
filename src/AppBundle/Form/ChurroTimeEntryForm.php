@@ -17,7 +17,8 @@ class ChurroTimeEntryForm extends AbstractType
                 'choices' => [
                     'vanilla' => 'Vanilla',
                     'chocolate' => 'Chocolate',
-                ]
+                ],
+                'placeholder' => 'Choose a type'
             ])
             ->add('startCookingAt', DateTimeType::class, [
                 'widget' => 'single_text'
