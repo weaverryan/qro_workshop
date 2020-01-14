@@ -31,6 +31,9 @@ class ChurroTimeEntryForm extends AbstractType
             ->add('startCookingAt', DateTimeType::class, [
                 'widget' => 'single_text'
             ])
+            ->add('cookingDuration', IntegerType::class, [
+                'label' => 'Cooking time (minutes)',
+            ])
         ;
     }
 }
