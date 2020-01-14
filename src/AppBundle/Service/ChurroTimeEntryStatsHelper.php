@@ -3,6 +3,7 @@
 namespace AppBundle\Service;
 
 use AppBundle\Entity\ChurroTimeEntry;
+use AppBundle\Model\ChurroTypeStats;
 use Doctrine\Bundle\DoctrineBundle\Registry;
 use Psr\Log\LoggerInterface;
 
@@ -21,7 +22,7 @@ class ChurroTimeEntryStatsHelper
      * Determines which "type" cooks the most churros on average
      * and returns that inside an array with "type" and "average" keys.
      *
-     * @return array
+     * @return ChurroTypeStats
      */
     public function getMostEfficientTypeData()
     {
@@ -78,6 +79,10 @@ class ChurroTimeEntryStatsHelper
 
         $this->logger->info('Most efficient type is '.$bestType);
 
-        return ['type' => $bestType, 'average' => $avg];
+        $typeStats=  new ChurroTypeStats();
+        $typeStats->setType($bestType);
+        $typeStats->setAverage($avg);
+
+        return $typeStats;
     }
 }
