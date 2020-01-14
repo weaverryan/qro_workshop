@@ -3,6 +3,7 @@
 namespace AppBundle\Form;
 
 use AppBundle\Entity\Baker;
+use AppBundle\Entity\ChurroTimeEntry;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -16,10 +17,7 @@ class ChurroTimeEntryForm extends AbstractType
     {
         $builder
             ->add('type', ChoiceType::class, [
-                'choices' => [
-                    'vanilla' => 'Vanilla',
-                    'chocolate' => 'Chocolate',
-                ],
+                'choices' => ChurroTimeEntry::VALID_CHURRO_TYPES_TEXT,
                 'placeholder' => 'Choose a type'
             ])
             ->add('quantityMade', IntegerType::class)

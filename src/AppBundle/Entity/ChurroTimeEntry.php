@@ -20,6 +20,14 @@ class ChurroTimeEntry
         'vanilla'
     ];
 
+    const VALID_CHURRO_TYPES_TEXT = [
+        'plain' => 'Plain',
+        'guava' => 'Guava',
+        'chocolate' => 'Chocolate',
+        'dulce de leche' => 'Dulce de Leche',
+        'vanilla' => 'Vanilla',
+    ];
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
