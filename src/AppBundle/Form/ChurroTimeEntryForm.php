@@ -3,6 +3,8 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class ChurroTimeEntryForm extends AbstractType
@@ -11,11 +13,11 @@ class ChurroTimeEntryForm extends AbstractType
     {
         $builder
             ->add('type')
-            ->add('startCookingAt')
-            ->add('endCookingAt')
-            ->add('startCleanupAt')
-            ->add('endCleanupAt')
-            ->add('quantityMade')
+            ->add('startCookingAt', DateTimeType::class)
+            ->add('endCookingAt', DateTimeType::class)
+            ->add('startCleanupAt', DateTimeType::class)
+            ->add('endCleanupAt', DateTimeType::class)
+            ->add('quantityMade', IntegerType::class)
         ;
     }
 }
