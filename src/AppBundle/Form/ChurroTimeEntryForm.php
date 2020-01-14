@@ -13,7 +13,9 @@ class ChurroTimeEntryForm extends AbstractType
     {
         $builder
             ->add('type')
-            ->add('startCookingAt', DateTimeType::class)
+            ->add('startCookingAt', DateTimeType::class, [
+                'widget' => 'single_text'
+            ])
             ->add('endCookingAt', DateTimeType::class)
             ->add('startCleanupAt', DateTimeType::class)
             ->add('endCleanupAt', DateTimeType::class)
