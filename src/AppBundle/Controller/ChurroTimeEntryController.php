@@ -55,7 +55,24 @@ class ChurroTimeEntryController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            var_dump($form->getData());die;
+            $data = $form->getData();
+
+            $entry = new ChurroTimeEntry();
+            $entry->setType($data['type']);
+            $entry->setQuantityMade($data['quantityMade']);
+            $entry->setBakedBy($data['bakedBy']);
+            $entry->setStartCookingAt($data['startCookingAt']);
+            $entry->setEndCookingAt($data['endCookingAt']);
+            $entry->setStartCleanupAt($data['startCleanupAt']);
+            $entry->setEndCleanupAt($data['endCleanupAt']);
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($entry);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_churro_time_entry_show', [
+                'id' => $entry->getId(),
+            ]);
         }
 
         return $this->render('AppBundle:ChurroTimeEntry:new.html.twig', [
