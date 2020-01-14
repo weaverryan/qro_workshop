@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\ChurroTimeEntry;
+use AppBundle\Form\ChurroTimeEntryForm;
 use AppBundle\Service\ChurroTimeEntryStatsHelper;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
@@ -47,8 +48,10 @@ class ChurroTimeEntryController extends Controller
 
     public function newAction()
     {
-        return $this->render('AppBundle:ChurroTimeEntry:new.html.twig', [
+        $form = $this->createForm(ChurroTimeEntryForm::class);
 
+        return $this->render('AppBundle:ChurroTimeEntry:new.html.twig', [
+            'form' => $form->createView(),
         ]);
     }
 }
