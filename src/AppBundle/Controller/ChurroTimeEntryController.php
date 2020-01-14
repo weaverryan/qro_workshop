@@ -50,6 +50,10 @@ class ChurroTimeEntryController extends Controller
     public function newAction(Request $request)
     {
         $entry = new ChurroTimeEntry();
+        $entry->setStartCookingAt(new \DateTime('now'));
+        $entry->setEndCookingAt(new \DateTime('now'));
+        $entry->setStartCleanupAt(new \DateTime('now'));
+        $entry->setEndCleanupAt(new \DateTime('now'));
         $form = $this->createForm(ChurroTimeEntryForm::class, $entry, [
             'csrf_protection' => false,
         ]);
