@@ -53,12 +53,8 @@ class ChurroTimeEntryStatsHelper
         $bestType = null;
         $bestTypeAverage = 0;
         foreach ($types as $type => $data) {
-            $total = 0;
-            foreach ($data as $quantity) {
-                $total += $quantity;
-            }
+            $thisAverage = $this->calculateAverage($data);
 
-            $thisAverage = $total / count($data);
             if ($thisAverage > $bestTypeAverage) {
                 $bestTypeAverage = $thisAverage;
                 $bestType = $type;
@@ -95,5 +91,15 @@ class ChurroTimeEntryStatsHelper
         }
 
         return true;
+    }
+
+    private function calculateAverage(array $data)
+    {
+        $total = 0;
+        foreach ($data as $quantity) {
+            $total += $quantity;
+        }
+
+        return $total / count($data);
     }
 }
