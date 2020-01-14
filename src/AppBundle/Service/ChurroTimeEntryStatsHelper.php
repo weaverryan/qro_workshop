@@ -2,6 +2,8 @@
 
 namespace AppBundle\Service;
 
+use AppBundle\Entity\ChurroTimeEntry;
+
 class ChurroTimeEntryStatsHelper
 {
     /**
@@ -11,7 +13,7 @@ class ChurroTimeEntryStatsHelper
      * @param ChurroTimeEntry[] $timeEntries
      * @return array
      */
-    private function getMostEfficientTypeData(array $timeEntries)
+    public function getMostEfficientTypeData(array $timeEntries)
     {
         $useFilter = true;
         $today = new \DateTime('now');
