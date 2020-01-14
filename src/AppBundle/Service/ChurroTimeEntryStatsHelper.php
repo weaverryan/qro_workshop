@@ -6,11 +6,11 @@ use AppBundle\Entity\ChurroTimeEntry;
 
 class ChurroTimeEntryStatsHelper
 {
-    private $container;
+    private $doctrine;
 
-    public function __construct($container)
+    public function __construct($doctrine)
     {
-        $this->container = $container;
+        $this->doctrine = $doctrine;
     }
 
     /**
@@ -21,7 +21,7 @@ class ChurroTimeEntryStatsHelper
      */
     public function getMostEfficientTypeData()
     {
-        $timeEntries = $this->container->get('doctrine')
+        $timeEntries = $this->doctrine
             ->getRepository(ChurroTimeEntry::class)
             ->createQueryBuilder('churro_time_entry')
             ->where('churro_time_entry.startCookingAt > :date')

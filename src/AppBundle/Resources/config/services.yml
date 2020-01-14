@@ -2,4 +2,4 @@ services:
     app.churro_time_entry_stats_helper:
         class: AppBundle\Service\ChurroTimeEntryStatsHelper
         arguments:
-            - '@service_container'
+            - '@doctrine'
