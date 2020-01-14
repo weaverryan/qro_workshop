@@ -29,7 +29,7 @@
                         <td>{{ timeEntry.type }}</td>
                         <td>{{ timeEntry.quantityMade }}</td>
                         <td>
-                            :{{ ((timeEntry.endCookingAt.timestamp - timeEntry.startCookingAt.timestamp) / 60)|round }}
+                            :{{ ((timeEntry.cookingDuration) / 60)|round }}
                         </td>
                         <td
                             {% if ((timeEntry.endCleanupAt.timestamp - timeEntry.startCleanupAt.timestamp) / 60) > 30 %}
