@@ -13,12 +13,7 @@ class ChurroTimeEntryController extends Controller
     {
         $timeEntries = $this->container->get('doctrine')
             ->getRepository(ChurroTimeEntry::class)
-            ->createQueryBuilder('churro_time_entry')
-            ->where('churro_time_entry.startCookingAt > :date')
-            ->setParameter('date', new \DateTime('-1 week'))
-            ->orderBy('churro_time_entry.startCookingAt', 'DESC')
-            ->getQuery()
-            ->getResult();
+            ->findAllDuringLastWeekOrderedNewestFirst();
 
         $this->container
             ->get('logger')
