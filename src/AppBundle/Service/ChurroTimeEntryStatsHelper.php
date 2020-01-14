@@ -4,14 +4,17 @@ namespace AppBundle\Service;
 
 use AppBundle\Entity\ChurroTimeEntry;
 use Doctrine\Bundle\DoctrineBundle\Registry;
+use Symfony\Bridge\Monolog\Logger;
 
 class ChurroTimeEntryStatsHelper
 {
     private $doctrine;
+    private $logger;
 
-    public function __construct(Registry $doctrine)
+    public function __construct(Registry $doctrine, Logger $logger)
     {
         $this->doctrine = $doctrine;
+        $this->logger = $logger;
     }
 
     /**
@@ -77,6 +80,8 @@ class ChurroTimeEntryStatsHelper
                 $bestType = $type;
             }
         }
+
+        $this->logger->info('Most efficient type is '.$bestType);
 
         return ['type' => $bestType, 'average' => $avg];
     }
