@@ -39,14 +39,14 @@ class ChurroTimeEntryStatsHelper
             }
 
             if ($useFilter && $timeEntry->getStartCookingAt()->format('H') >= 22) {
-                // skip
+                continue;
+            }
+
+            if (isset($types[$timeEntry->getType()])) {
+                $types[$timeEntry->getType()][] = $timeEntry->getQuantityMade();
             } else {
-                if (isset($types[$timeEntry->getType()])) {
-                    $types[$timeEntry->getType()][] = $timeEntry->getQuantityMade();
-                } else {
-                    $types[$timeEntry->getType()] = [];
-                    $types[$timeEntry->getType()][] = $timeEntry->getQuantityMade();
-                }
+                $types[$timeEntry->getType()] = [];
+                $types[$timeEntry->getType()][] = $timeEntry->getQuantityMade();
             }
         }
 
