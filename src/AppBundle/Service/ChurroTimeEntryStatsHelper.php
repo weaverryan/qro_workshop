@@ -34,6 +34,11 @@ class ChurroTimeEntryStatsHelper
 
         $types = [];
         foreach ($timeEntries as $timeEntry) {
+            if ($timeEntry->getBakedBy()->getUsername() === 'jwage') {
+                // jwage doesn't count
+                continue;
+            }
+
             if ($useFilter && $timeEntry->getStartCookingAt()->format('H') < 6) {
                 continue;
             }
