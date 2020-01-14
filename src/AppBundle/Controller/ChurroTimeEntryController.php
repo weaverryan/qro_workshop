@@ -75,6 +75,10 @@ class ChurroTimeEntryController extends Controller
 
     public function showAction($id)
     {
-        return new Response('Time entry '.$id);
+        $timeEntry = $this->getDoctrine()
+            ->getRepository(ChurroTimeEntry::class)
+            ->find($id);
+
+        return new Response('Time entry quantity '.$timeEntry->getQuantityMade());
     }
 }
