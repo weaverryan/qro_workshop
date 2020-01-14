@@ -194,4 +194,15 @@ class ChurroTimeEntry
     {
         return ($this->getCleanupDuration() / 60) > 30;
     }
+
+    public function setCookingAndCleanupDuration($cookingMinutes, $cleanupMinutes)
+    {
+        $this->setEndCookingAt(
+            (clone $this->getStartCookingAt())->modify(sprintf('+%s minutes', $cookingMinutes))
+        );
+        $this->setStartCleanupAt(clone $this->getEndCookingAt());
+        $this->setEndCleanupAt(
+            (clone $this->getStartCleanupAt())->modify(sprintf('+%s minutes', $cleanupMinutes))
+        );
+    }
 }
