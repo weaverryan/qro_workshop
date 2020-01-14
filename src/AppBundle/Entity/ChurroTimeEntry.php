@@ -168,4 +168,12 @@ class ChurroTimeEntry
     {
         return $this->getEndCookingAt()->getTimestamp() - $this->getStartCookingAt()->getTimestamp();
     }
+
+    /**
+     * @return int The time in seconds
+     */
+    public function getCleanupDuration()
+    {
+        return $this->getEndCleanupAt()->getTimestamp() - $this->getStartCleanupAt()->getTimestamp();
+    }
 }
