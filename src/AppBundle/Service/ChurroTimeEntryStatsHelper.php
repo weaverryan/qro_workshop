@@ -10,10 +10,9 @@ class ChurroTimeEntryStatsHelper
      * Determines which "type" cooks the most churros on average
      * and returns that inside an array with "type" and "average" keys.
      *
-     * @param ChurroTimeEntry[] $timeEntries
      * @return array
      */
-    public function getMostEfficientTypeData(array $timeEntries)
+    public function getMostEfficientTypeData()
     {
         $timeEntries = $this->container->get('doctrine')
             ->getRepository(ChurroTimeEntry::class)

@@ -26,7 +26,7 @@ class ChurroTimeEntryController extends Controller
 
         $statsHelper = $this->container
             ->get('app.churro_time_entry_stats_helper');
-        $bestTypeData = $statsHelper->getMostEfficientTypeData($timeEntries);
+        $bestTypeData = $statsHelper->getMostEfficientTypeData();
 
         return $this->render('AppBundle:ChurroTimeEntry:list.html.twig', [
             'timeEntries' => $timeEntries,
