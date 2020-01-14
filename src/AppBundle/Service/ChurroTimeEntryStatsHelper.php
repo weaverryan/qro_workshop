@@ -79,8 +79,6 @@ class ChurroTimeEntryStatsHelper
 
         $this->logger->info('Most efficient type is '.$bestType);
 
-        $typeStats = new ChurroTypeStats($bestType, $avg);
-
-        return $typeStats;
+        return new ChurroTypeStats($bestType, $avg);
     }
 }
