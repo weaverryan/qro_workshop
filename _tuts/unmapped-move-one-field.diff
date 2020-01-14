@@ -1,0 +1,23 @@
+diff --git a/src/AppBundle/Form/ChurroTimeEntryForm.php b/src/AppBundle/Form/ChurroTimeEntryForm.php
+index 7c30cda..e0d264d 100644
+--- a/src/AppBundle/Form/ChurroTimeEntryForm.php
++++ b/src/AppBundle/Form/ChurroTimeEntryForm.php
+@@ -22,15 +22,15 @@ class ChurroTimeEntryForm extends AbstractType
+                 ],
+                 'placeholder' => 'Choose a type'
+             ])
+-            ->add('startCookingAt', DateTimeType::class, [
+-                'widget' => 'single_text'
+-            ])
+             ->add('quantityMade', IntegerType::class)
+             ->add('bakedBy', EntityType::class, [
+                 'class' => Baker::class,
+                 'choice_label' => 'abbreviatedName',
+                 'placeholder' => 'Choose a baker'
+             ])
++            ->add('startCookingAt', DateTimeType::class, [
++                'widget' => 'single_text'
++            ])
+         ;
+     }
+ }

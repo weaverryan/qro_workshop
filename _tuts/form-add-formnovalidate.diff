@@ -1,0 +1,13 @@
+diff --git a/src/AppBundle/Resources/views/ChurroTimeEntry/new.html.twig b/src/AppBundle/Resources/views/ChurroTimeEntry/new.html.twig
+index fbd8360..73e1e19 100644
+--- a/src/AppBundle/Resources/views/ChurroTimeEntry/new.html.twig
++++ b/src/AppBundle/Resources/views/ChurroTimeEntry/new.html.twig
+@@ -7,7 +7,7 @@
+         {{ form_start(form) }}
+             {{ form_widget(form) }}
+ 
+-            <button type="submit" class="btn btn-primary">Save</button>
++            <button type="submit" class="btn btn-primary" formnovalidate>Save</button>
+         {{ form_end(form) }}
+     </div>
+ {% endblock %}

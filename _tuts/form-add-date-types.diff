@@ -1,16 +1,17 @@
 diff --git a/src/AppBundle/Form/ChurroTimeEntryForm.php b/src/AppBundle/Form/ChurroTimeEntryForm.php
-index 89bbf85..73e30b0 100644
+index 89bbf85..290af7b 100644
 --- a/src/AppBundle/Form/ChurroTimeEntryForm.php
 +++ b/src/AppBundle/Form/ChurroTimeEntryForm.php
-@@ -3,6 +3,7 @@
+@@ -3,6 +3,8 @@
  namespace AppBundle\Form;
  
  use Symfony\Component\Form\AbstractType;
 +use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
++use Symfony\Component\Form\Extension\Core\Type\IntegerType;
  use Symfony\Component\Form\FormBuilderInterface;
  
  class ChurroTimeEntryForm extends AbstractType
-@@ -11,10 +12,10 @@ class ChurroTimeEntryForm extends AbstractType
+@@ -11,11 +13,11 @@ class ChurroTimeEntryForm extends AbstractType
      {
          $builder
              ->add('type')
@@ -18,10 +19,12 @@ index 89bbf85..73e30b0 100644
 -            ->add('endCookingAt')
 -            ->add('startCleanupAt')
 -            ->add('endCleanupAt')
+-            ->add('quantityMade')
 +            ->add('startCookingAt', DateTimeType::class)
 +            ->add('endCookingAt', DateTimeType::class)
 +            ->add('startCleanupAt', DateTimeType::class)
 +            ->add('endCleanupAt', DateTimeType::class)
-             ->add('quantityMade')
++            ->add('quantityMade', IntegerType::class)
          ;
      }
+ }

@@ -34,22 +34,28 @@ index d3be246..1492e82 100644
 +        _controller: 'AppBundle:ChurroTimeEntry:show'
 \ No newline at end of file
 diff --git a/src/AppBundle/Resources/views/ChurroTimeEntry/list.html.twig b/src/AppBundle/Resources/views/ChurroTimeEntry/list.html.twig
-index 404a8ef..9fd9254 100644
+index 404a8ef..71eb178 100644
 --- a/src/AppBundle/Resources/views/ChurroTimeEntry/list.html.twig
 +++ b/src/AppBundle/Resources/views/ChurroTimeEntry/list.html.twig
-@@ -44,6 +44,12 @@
-                             }) }}">
-                                 view
-                             </a>
-+                            |
-+                            <a href="{{ path('app_churro_time_entry_edit', {
-+                                id: timeEntry.id
-+                            }) }}">
-+                                edit
-+                            </a>
-                         </td>
-                     </tr>
-                 {% endfor %}
+@@ -3,12 +3,17 @@
+ {% block body %}
+     <main role="main" class="container">
+         <div class="row">
+-            <div class="col-sm-8">
++            <div class="col-sm-7">
+                 <h1>Churro Cooking Time Entries</h1>
+             </div>
+             <div class="col-sm-4">
+                 {{ include('@App/ChurroTimeEntry/_bestChurroTypeBox.html.twig') }}
+             </div>
++            <div class="col-sm-1">
++                <a href="{{ path('app_churro_time_entry_new') }}" class="btn btn-primary">
++                    Create
++                </a>
++            </div>
+         </div>
+ 
+         <table class="table">
 diff --git a/src/AppBundle/Resources/views/ChurroTimeEntry/new.html.twig b/src/AppBundle/Resources/views/ChurroTimeEntry/new.html.twig
 new file mode 100644
 index 0000000..d286b40

@@ -1,0 +1,43 @@
+diff --git a/src/AppBundle/Entity/ChurroTimeEntry.php b/src/AppBundle/Entity/ChurroTimeEntry.php
+index 96dee58..e18b2eb 100644
+--- a/src/AppBundle/Entity/ChurroTimeEntry.php
++++ b/src/AppBundle/Entity/ChurroTimeEntry.php
+@@ -20,6 +20,14 @@ class ChurroTimeEntry
+         'vanilla'
+     ];
+ 
++    const VALID_CHURRO_TYPES_TEXT = [
++        'plain' => 'Plain',
++        'guava' => 'Guava',
++        'chocolate' => 'Chocolate',
++        'dulce de leche' => 'Dulce de Leche',
++        'vanilla' => 'Vanilla',
++    ];
++
+     /**
+      * @ORM\Id
+      * @ORM\GeneratedValue(strategy="AUTO")
+diff --git a/src/AppBundle/Form/ChurroTimeEntryForm.php b/src/AppBundle/Form/ChurroTimeEntryForm.php
+index 48df180..bdc4db3 100644
+--- a/src/AppBundle/Form/ChurroTimeEntryForm.php
++++ b/src/AppBundle/Form/ChurroTimeEntryForm.php
+@@ -3,6 +3,7 @@
+ namespace AppBundle\Form;
+ 
+ use AppBundle\Entity\Baker;
++use AppBundle\Entity\ChurroTimeEntry;
+ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+ use Symfony\Component\Form\AbstractType;
+ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+@@ -16,10 +17,7 @@ class ChurroTimeEntryForm extends AbstractType
+     {
+         $builder
+             ->add('type', ChoiceType::class, [
+-                'choices' => [
+-                    'vanilla' => 'Vanilla',
+-                    'chocolate' => 'Chocolate',
+-                ],
++                'choices' => ChurroTimeEntry::VALID_CHURRO_TYPES_TEXT,
+                 'placeholder' => 'Choose a type'
+             ])
+             ->add('quantityMade', IntegerType::class)

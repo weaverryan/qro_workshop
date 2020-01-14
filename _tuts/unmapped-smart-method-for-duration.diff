@@ -1,0 +1,40 @@
+diff --git a/src/AppBundle/Controller/ChurroTimeEntryController.php b/src/AppBundle/Controller/ChurroTimeEntryController.php
+index 07f7e5b..07bc55b 100644
+--- a/src/AppBundle/Controller/ChurroTimeEntryController.php
++++ b/src/AppBundle/Controller/ChurroTimeEntryController.php
+@@ -57,12 +57,9 @@ class ChurroTimeEntryController extends Controller
+         $form->handleRequest($request);
+ 
+         if ($form->isSubmitted() && $form->isValid()) {
+-            $entry->setEndCookingAt(
+-                (clone $entry->getStartCookingAt())->modify(sprintf('+%s minutes', $form['cookingDuration']->getData()))
+-            );
+-            $entry->setStartCleanupAt(clone $entry->getEndCookingAt());
+-            $entry->setEndCleanupAt(
+-                (clone $entry->getStartCleanupAt())->modify(sprintf('+%s minutes', $form['cleanupDuration']->getData()))
++            $entry->setCookingAndCleanupDuration(
++                $form['cookingDuration']->getData(),
++                $form['cleanupDuration']->getData()
+             );
+ 
+             $entityManager = $this->getDoctrine()->getManager();
+diff --git a/src/AppBundle/Entity/ChurroTimeEntry.php b/src/AppBundle/Entity/ChurroTimeEntry.php
+index 9bb99eb..1f225bd 100644
+--- a/src/AppBundle/Entity/ChurroTimeEntry.php
++++ b/src/AppBundle/Entity/ChurroTimeEntry.php
+@@ -194,4 +194,15 @@ class ChurroTimeEntry
+     {
+         return ($this->getCleanupDuration() / 60) > 30;
+     }
++
++    public function setCookingAndCleanupDuration($cookingMinutes, $cleanupMinutes)
++    {
++        $this->setEndCookingAt(
++            (clone $this->getStartCookingAt())->modify(sprintf('+%s minutes', $cookingMinutes))
++        );
++        $this->setStartCleanupAt(clone $this->getEndCookingAt());
++        $this->setEndCleanupAt(
++            (clone $this->getStartCleanupAt())->modify(sprintf('+%s minutes', $cleanupMinutes))
++        );
++    }
+ }

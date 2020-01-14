@@ -1,0 +1,18 @@
+diff --git a/src/AppBundle/Form/ChurroTimeEntryForm.php b/src/AppBundle/Form/ChurroTimeEntryForm.php
+index f49036d..48df180 100644
+--- a/src/AppBundle/Form/ChurroTimeEntryForm.php
++++ b/src/AppBundle/Form/ChurroTimeEntryForm.php
+@@ -32,8 +32,13 @@ class ChurroTimeEntryForm extends AbstractType
+                 'widget' => 'single_text'
+             ])
+             ->add('cookingDuration', IntegerType::class, [
++                'mapped' => false,
+                 'label' => 'Cooking time (minutes)',
+             ])
++            ->add('cleanupDuration', IntegerType::class, [
++                'mapped' => false,
++                'label' => 'Cleanup time (minutes)',
++            ])
+         ;
+     }
+ }
