@@ -68,6 +68,9 @@ class ChurroTimeEntry
         $this->type = $type;
     }
 
+    /**
+     * @return \DateTime
+     */
     public function getStartCookingAt()
     {
         return $this->startCookingAt;
@@ -78,6 +81,9 @@ class ChurroTimeEntry
         $this->startCookingAt = $startCookingAt;
     }
 
+    /**
+     * @return \DateTime
+     */
     public function getEndCookingAt()
     {
         return $this->endCookingAt;
@@ -88,6 +94,9 @@ class ChurroTimeEntry
         $this->endCookingAt = $endCookingAt;
     }
 
+    /**
+     * @return \DateTime
+     */
     public function getStartCleanupAt()
     {
         return $this->startCleanupAt;
@@ -98,6 +107,9 @@ class ChurroTimeEntry
         $this->startCleanupAt = $startCleanupAt;
     }
 
+    /**
+     * @return \DateTime
+     */
     public function getEndCleanupAt()
     {
         return $this->endCleanupAt;
