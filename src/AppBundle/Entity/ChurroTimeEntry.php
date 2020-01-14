@@ -148,4 +148,13 @@ class ChurroTimeEntry
 
         return $this->bakedBy->getUsername();
     }
+
+    public function getBakerDisplayName()
+    {
+        if (!$this->bakedBy) {
+            throw new \Exception('This ChurroTimeEntry does not have a Baker!');
+        }
+
+        return $this->bakedBy->getAbbreviatedName();
+    }
 }
