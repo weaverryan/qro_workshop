@@ -83,6 +83,8 @@ class ChurroTimeEntryController extends Controller
             throw $this->createNotFoundException('no time entry for '.$id);
         }
 
-        return new Response('Time entry quantity '.$timeEntry->getQuantityMade());
+        return $this->render('AppBundle:ChurroTimeEntry:show.html.twig', [
+            'timeEntry' => $timeEntry
+        ]);
     }
 }
